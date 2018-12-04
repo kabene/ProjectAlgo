@@ -28,7 +28,18 @@ public class GrilleJeu {
 	 */
 	
 	public GrilleJeu(int nombreJoueurs, int nombreDeCases, int nombreDeGuerriersParJoueur, int nombreDeTours,int ptsVieDeDepart,String[] nomDesJoueurs) {
-		//TODO
+		if(nombreDeCases>=nombreDeGuerriersParJoueur*nombreJoueurs) {
+			this.tableJoueurs = new Joueur[nombreJoueurs];
+			for(int i=0;i<tableJoueurs.length;i++){
+				tableJoueurs[i]=new Joueur(nomDesJoueurs[i],nombreDeGuerriersParJoueur,ptsVieDeDepart,i+1);
+			}
+		}else throw new IllegalArgumentException("trop de guerriers ");
+		 this.cases=new Guerrier[nombreDeCases];
+
+		 this.nombreDeTours=nombreDeTours;
+
+
+
 	} 	
 
 	/**
