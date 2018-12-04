@@ -110,13 +110,12 @@ public class GrilleJeu {
 	 * @return un tableau de pion repr�sentant le classement des pions selon les crit�res ci-dessus
 	 */
 	public Guerrier[] classerGuerriers() {
-		int nbrGuerrierEnVie=0;
-		for(Joueur joueur : tableJoueurs)
-			nbrGuerrierEnVie=nbrGuerrierEnVie+joueur.nombreDeGuerriersEnVie();
-		Guerrier[] classementGuerrier= new Guerrier[nbrGuerrierEnVie];
+		int nombreenvie=0;
+		for (int i=1;i<=tableJoueurs.length;i++) nombreenvie+=tableJoueurs[i].nombreDeGuerriersEnVie();
+		Guerrier [] classement=new Guerrier[nombreenvie];
+		for (int i=1;i<=cases.length;i++){
 
-
-			return null ;
+        }
 	}
 
 }
