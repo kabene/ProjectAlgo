@@ -102,7 +102,7 @@ public class GrilleJeu {
 	 */
 	
 	public void supprimerPion(int numCase) {
-		//TODO
+		cases[numCase-1]=null;
 	}
 	
 	/**
@@ -110,7 +110,7 @@ public class GrilleJeu {
 	 * @return un tableau de pion repr�sentant le classement des pions selon les crit�res ci-dessus
 	 */
 	public Guerrier[] classerGuerriers() {
-		//TODO
+
 		return null ;
 	}
 
