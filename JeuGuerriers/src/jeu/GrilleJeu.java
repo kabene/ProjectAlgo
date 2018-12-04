@@ -53,8 +53,7 @@ public class GrilleJeu {
 	 * @return le joueur
 	 */
 	public Joueur donnerJoueur(int numJoueur) {
-		// TODO
-		return null ;
+		return tableJoueurs[numJoueur-1] ;
 	}
 
 	/**
@@ -64,7 +63,7 @@ public class GrilleJeu {
 	 *         null sinon
 	 */
 	public Guerrier donnerPion(int numCase) {
-		return null ;
+		return cases[numCase-1];
 	}
 
 	
@@ -77,7 +76,9 @@ public class GrilleJeu {
 	 */
 	
 	public void bougerPion(int caseDepart, int caseArrivee) {
-		//TODO
+		Guerrier a=cases[caseDepart-1];
+		cases[caseDepart-1]=null;
+		cases[caseArrivee-1]=a;
 	}
 	
 	/**
@@ -89,7 +90,9 @@ public class GrilleJeu {
 	 *         false sinon
 	 */
 	public boolean estUnPionDuJoueur(int numCase, Joueur joueur) {
-		//TODO
+		if(cases[numCase-1].getNumJoueur()==joueur.getNumJoueur()){
+		    return true;
+        }
 		return false ;
 	}
 	
