@@ -22,8 +22,12 @@ public class Joueur {
 	 */
 	public Joueur(String nom, int nbGuerriers, int ptsVie, int numJoueur) {
 		this.nom=nom;
-		//TODO
-
+		this.guerriers=new Guerrier[nbGuerriers];
+		for(int i=0;i<guerriers.length;i++){
+		    guerriers[i]=new Guerrier(numJoueur,ptsVie,i+1);
+		    guerriers[i].setPtsVie(ptsVie);
+        }
+		this.numJoueur=numJoueur;
 	}
 	
 	/**
@@ -49,8 +53,7 @@ public class Joueur {
 	 * @return le guerrier num�ro numGuerrier du joueur
 	 */
 	public Guerrier getGuerrier(int numGuerrier) {
-		//TODO
-		return null ;
+		return guerriers[numGuerrier-1];
 	}
 	
 	/** 
@@ -58,8 +61,13 @@ public class Joueur {
 	 * @return le nombre de guerrier encore en vie du joueur
 	 */
 	public int nombreDeGuerriersEnVie() {
-		//TODO
-		return 0 ;
+	    int count=0;
+	    for(int i=0;i<guerriers.length;i++){
+	        if(guerriers[i].getPtsVie()>0){
+	            count++;
+            }
+        }
+		return count;
 	}
 
 }
