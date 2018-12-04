@@ -28,7 +28,22 @@ public class GrilleJeu {
 	 */
 	
 	public GrilleJeu(int nombreJoueurs, int nombreDeCases, int nombreDeGuerriersParJoueur, int nombreDeTours,int ptsVieDeDepart,String[] nomDesJoueurs) {
-		//TODO
+		if(nombreDeGuerriersParJoueur*nombreJoueurs>nombreDeCases)
+		    throw new IllegalArgumentException("Pas assez de cases");
+	    this.tableJoueurs=new Joueur[nombreJoueurs];
+	    for(int i=0;i<nomDesJoueurs.length; i++){
+	        tableJoueurs[i]=new Joueur(nomDesJoueurs[i],nombreDeGuerriersParJoueur,ptsVieDeDepart,i+1);
+        }
+		this.cases=new Guerrier[nombreDeCases];
+	    int indCase=0;
+	    for(int i=0; i<nombreDeGuerriersParJoueur; i++){
+	        for(int j=0; j<nombreJoueurs; j++){
+	            cases[indCase]=tableJoueurs[j].getGuerrier(i+1);
+	            indCase++;
+            }
+        }
+		this.nombreDeTours=nombreDeTours;
+
 	} 	
 
 	/**
