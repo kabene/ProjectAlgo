@@ -43,7 +43,21 @@ public class JeuGuerrier {
 		}
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
-		//TODO 
+		int tourActuel=0;
+		for(int i=0;i<nbrTours;i++){
+		    for(int j=0;j<nbreJoueurs;j++) {
+                DeTests lance = new DeTests();
+                int resultatDe=lance.lancer();
+                plateau.afficherResultatDe(resultatDe);
+                int click=plateau.jouer();
+                Guerrier vaJouer= grille.donnerJoueur(j).getGuerrier(click);
+                if(click+resultatDe<nbrCases) {
+                    grille.bougerPion(click, click + resultatDe);
+                }else grille.bougerPion(click,nbrCases-(click + resultatDe));
+            }
+        }
 	}
+
+
 
 }
