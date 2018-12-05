@@ -110,12 +110,38 @@ public class GrilleJeu {
 	 * @return un tableau de pion repr�sentant le classement des pions selon les crit�res ci-dessus
 	 */
 	public Guerrier[] classerGuerriers() {
-		int nombreenvie=0;
-		for (int i=1;i<=tableJoueurs.length;i++) nombreenvie+=tableJoueurs[i].nombreDeGuerriersEnVie();
-		Guerrier [] classement=new Guerrier[nombreenvie];
-		for (int i=1;i<=cases.length;i++){
+        int nombreenvie = 0;
+        for (int i = 1; i <= tableJoueurs.length; i++) nombreenvie += tableJoueurs[i].nombreDeGuerriersEnVie();
+        Guerrier[] classement = new Guerrier[nombreenvie];
+
+        int nbrGuerrierClasse=0;
+        for(int i=1; i<=cases.length; i++){
+            int indClassement=0;
+            if(donnerPion(i)!=null){
+                if(classement[indClassement]==null){
+                    classement[indClassement]=donnerPion(i);
+                    nbrGuerrierClasse++;
+                }else{
+                    while(classement[indClassement]!=null && donnerPion(i).getNombreDeTours()<classement[indClassement].getNombreDeTours()){
+                        indClassement++;
+                    }
+                    Guerrier memo=classement[indClassement];
+                    classement[indClassement]=donnerPion(i);
+                    nbrGuerrierClasse++;
+                    indClassement++;
+                    while(indClassement<nbrGuerrierClasse){
+                        Guerrier memo2 = classement[indClassement];
+                        classement[indClassement]=memo;
+                        memo=memo2;
+                        indClassement++;
+                    }
+                }
+            }
 
         }
+
+        return classement;
+
 	}
 
 }
