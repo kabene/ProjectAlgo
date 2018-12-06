@@ -46,63 +46,67 @@ public class JeuGuerrier {
 		int tourMax=0;
 		while(tourMax<nbrTours) {
 			for (int i = 0; i < nbreJoueurs; i++) {
-			    plateau.afficherJoueur(grille.donnerJoueur(i+1));
-				int nbr = de.lancer();
-				plateau.afficherResultatDe(nbr);
-				int caseChoisie = plateau.jouer();
+                if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
+                    plateau.afficherJoueur(grille.donnerJoueur(i + 1));
+                    int nbr = de.lancer();
+                    plateau.afficherResultatDe(nbr);
+                    int caseChoisie = plateau.jouer();
 
 
-				if(grille.donnerPion(caseChoisie)!=null && grille.estUnPionDuJoueur(caseChoisie,grille.donnerJoueur(i+1))) {
-                    if (nbr + caseChoisie > nbrCases) {
-                        nbr = nbr + caseChoisie - nbrCases;
+                    if (grille.donnerPion(caseChoisie) != null && grille.estUnPionDuJoueur(caseChoisie, grille.donnerJoueur(i + 1))) {
+                        if (nbr + caseChoisie > nbrCases) {
+                            nbr = nbr + caseChoisie - nbrCases;
 
 
-                        if (grille.donnerPion(nbr) == null) {
-                            grille.bougerPion(caseChoisie, nbr);
-                            grille.donnerPion(nbr).ajouterUnTour();
-
-                        } else {
-
-                            int resultat = seBattre(caseChoisie, nbr);
-                            if (resultat == 2) {
-                                grille.donnerPion(nbr).ajouterUnTour();
-                                if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
-                                    tourMax = grille.donnerPion(nbr).getNombreDeTours();
-
-                            } else if (resultat == 4) {
-
-                                while (grille.donnerPion(nbr) != null)
-                                    nbr++;
+                            if (grille.donnerPion(nbr) == null) {
                                 grille.bougerPion(caseChoisie, nbr);
                                 grille.donnerPion(nbr).ajouterUnTour();
                                 if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
                                     tourMax = grille.donnerPion(nbr).getNombreDeTours();
-                            }
-                        }
-                        plateau.actualiser(grille);
-                    }else{
-                        nbr=nbr+caseChoisie;
-                        if (grille.donnerPion(nbr) == null) {
-                            grille.bougerPion(caseChoisie, nbr);
-                        }else{
 
-                            int resultat= seBattre(caseChoisie,nbr);
-                            if(resultat==4){
-                                while (grille.donnerPion(nbr) != null){
-                                    if(nbr !=nbrCases) {
+                            } else {
+
+                                int resultat = seBattre(caseChoisie, nbr);
+                                if (resultat == 2) {
+                                    grille.donnerPion(nbr).ajouterUnTour();
+                                    if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                        tourMax = grille.donnerPion(nbr).getNombreDeTours();
+
+                                } else if (resultat == 4) {
+
+                                    while (grille.donnerPion(nbr) != null)
                                         nbr++;
-                                    }else {
-                                        nbr = 1;
-                                        grille.donnerPion(caseChoisie).ajouterUnTour();
-                                    }
+                                    grille.bougerPion(caseChoisie, nbr);
+                                    grille.donnerPion(nbr).ajouterUnTour();
+                                    if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                        tourMax = grille.donnerPion(nbr).getNombreDeTours();
                                 }
-                                grille.bougerPion(caseChoisie, nbr);
                             }
+                            plateau.actualiser(grille);
+                        } else {
+                            nbr = nbr + caseChoisie;
+                            if (grille.donnerPion(nbr) == null) {
+                                grille.bougerPion(caseChoisie, nbr);
+                            } else {
+
+                                int resultat = seBattre(caseChoisie, nbr);
+                                if (resultat == 4) {
+                                    while (grille.donnerPion(nbr) != null) {
+                                        if (nbr != nbrCases) {
+                                            nbr++;
+                                        } else {
+                                            nbr = 1;
+                                            grille.donnerPion(caseChoisie).ajouterUnTour();
+                                        }
+                                    }
+                                    grille.bougerPion(caseChoisie, nbr);
+                                }
+                            }
+                            plateau.actualiser(grille);
                         }
-                        plateau.actualiser(grille);
                     }
                 }
-			}
+            }
 		}
 
 	}
