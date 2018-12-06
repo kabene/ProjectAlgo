@@ -106,6 +106,7 @@ public class JeuGuerrier {
                         }
                     }
                 }
+                plateau.afficherGuerriers(grille.classerGuerriers());
             }
 		}
 
