@@ -28,22 +28,26 @@ public class GrilleJeu {
      */
 
     public GrilleJeu(int nombreJoueurs, int nombreDeCases, int nombreDeGuerriersParJoueur, int nombreDeTours,int ptsVieDeDepart,String[] nomDesJoueurs) {
-             //gestion cases/guerriers
-          if (nombreDeGuerriersParJoueur * nombreJoueurs > nombreDeCases)
-              throw new IllegalArgumentException("pas assez de cases");
-          if(nombreJoueurs>8)
-              throw new IllegalArgumentException("Trop de joueurs");
-          if(nombreDeGuerriersParJoueur>10)
-              throw new IllegalArgumentException("Trop de guerriers par joueur");
+        //gestion cases/guerriers
+        try {
+            //Le nombre de case doit être supérieur au nombre total de guerrier
+            if (nombreDeGuerriersParJoueur * nombreJoueurs > nombreDeCases)
+                throw new IllegalArgumentException("pas assez de cases");
+            //nbr de joueur limité à 8
+            if (nombreJoueurs > 8)
+                throw new IllegalArgumentException("Trop de joueurs");
+            //nbr de guerriers par joueur limité à 10
+            if (nombreDeGuerriersParJoueur > 10)
+                throw new IllegalArgumentException("Trop de guerriers par joueur");
 
-          this.tableJoueurs = new Joueur[nombreJoueurs];
+            this.tableJoueurs = new Joueur[nombreJoueurs];
             for (int i = 0; i < nomDesJoueurs.length; i++) {
                 tableJoueurs[i] = new Joueur(nomDesJoueurs[i], nombreDeGuerriersParJoueur, ptsVieDeDepart, i + 1);
             }
             // pour l'interface graphique il est précisé qu'il faut un nombre de cases pairs
-            if(nombreDeCases%2==0) {
+            if (nombreDeCases % 2 == 0) {
                 this.cases = new Guerrier[nombreDeCases];
-            }else this.cases = new Guerrier[nombreDeCases+1];
+            } else this.cases = new Guerrier[nombreDeCases + 1];
             int indCase = 0;
             for (int i = 0; i < nombreDeGuerriersParJoueur; i++) {
                 for (int j = 0; j < nombreJoueurs; j++) {
@@ -52,6 +56,9 @@ public class GrilleJeu {
                 }
             }
             this.nombreDeTours = nombreDeTours;
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
 
 
     }
