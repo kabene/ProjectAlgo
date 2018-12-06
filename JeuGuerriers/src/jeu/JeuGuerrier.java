@@ -43,20 +43,61 @@ public class JeuGuerrier {
 		}
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
-		int tourActuel=0;
-		for(int i=0;i<nbrTours;i++){
-		    for(int j=0;j<nbreJoueurs;j++) {
-                DeTests lance = new DeTests();
-                int resultatDe=lance.lancer();
-                plateau.afficherResultatDe(resultatDe);
-                int click=plateau.jouer();
-                Guerrier vaJouer= grille.donnerJoueur(j).getGuerrier(click);
-                if(click+resultatDe<nbrCases) {
-                    grille.bougerPion(click, click + resultatDe);
-                }else grille.bougerPion(click,nbrCases-(click + resultatDe));
-            }
-        }
+		int tourMax=0;
+		while(tourMax<nbrTours) {
+			for (int i = 0; i < nbreJoueurs; i++) {
+				int nbr = de.lancer();
+				plateau.afficherResultatDe(nbr);
+				int caseChoisie = plateau.jouer();
+				if(nbr+caseChoisie>nbrCases){
+				    nbr=nbr+caseChoisie-nbrCases;
+				    if(grille.donnerPion(nbr)==null) {
+                        grille.bougerPion(caseChoisie, nbr);
+                        grille.donnerPion(nbr).ajouterUnTour();
+                    }else{
+				        int resultat = seBattre(caseChoisie,nbr);
+				        if(resultat==2) {
+                            grille.donnerPion(nbr).ajouterUnTour();
+                            if(grille.donnerPion(nbr).getNombreDeTours()>tourMax)
+                                tourMax=grille.donnerPion(nbr).getNombreDeTours();
+                        }else if(resultat==4) {
+                            while(grille.donnerPion(nbr)!=null)
+                                nbr++;
+                            grille.bougerPion(caseChoisie,nbr);
+                            grille.donnerPion(nbr).ajouterUnTour();
+                            if(grille.donnerPion(nbr).getNombreDeTours()>tourMax)
+                                tourMax=grille.donnerPion(nbr).getNombreDeTours();
+                        }
+                    }
+                    plateau.actualiser(grille);
+                }
+			}
+		}
+
 	}
+
+	private static int seBattre(int caseAtt, int caseDef){
+	    Guerrier attaquant = grille.donnerPion(caseAtt);
+	    Guerrier defenseur = grille.donnerPion(caseDef);
+	    int valAtt = de.lancer();
+	    defenseur.setPtsVie(defenseur.getPtsVie()-valAtt);
+	    int valDef = de.lancer();
+	    attaquant.setPtsVie(attaquant.getPtsVie()-valDef);
+	    if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0) {
+            grille.supprimerPion(caseAtt);
+            grille.supprimerPion(caseDef);
+            return 1;
+        }else if(defenseur.getPtsVie()<=0) {
+            grille.bougerPion(caseAtt, caseDef);
+            return 2;
+        }else if(attaquant.getPtsVie()<=0){
+	        grille.supprimerPion(caseAtt);
+	        return 3;
+        }else if(valAtt>valDef){
+	        return 4;
+        }
+        return 5;
+    }
 
 
 

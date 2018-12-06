@@ -29,10 +29,14 @@ public class GrilleJeu {
 
     public GrilleJeu(int nombreJoueurs, int nombreDeCases, int nombreDeGuerriersParJoueur, int nombreDeTours,int ptsVieDeDepart,String[] nomDesJoueurs) {
              //gestion cases/guerriers
-          if (nombreDeGuerriersParJoueur * nombreJoueurs > nombreDeCases) {
-              this.tableJoueurs = new Joueur[nombreJoueurs];
-          }else throw new IllegalArgumentException("pas assez de cases");
+          if (nombreDeGuerriersParJoueur * nombreJoueurs > nombreDeCases)
+              throw new IllegalArgumentException("pas assez de cases");
+          if(nombreJoueurs>8)
+              throw new IllegalArgumentException("Trop de joueurs");
+          if(nombreDeGuerriersParJoueur>10)
+              throw new IllegalArgumentException("Trop de guerriers par joueur");
 
+          this.tableJoueurs = new Joueur[nombreJoueurs];
             for (int i = 0; i < nomDesJoueurs.length; i++) {
                 tableJoueurs[i] = new Joueur(nomDesJoueurs[i], nombreDeGuerriersParJoueur, ptsVieDeDepart, i + 1);
             }
@@ -82,9 +86,8 @@ public class GrilleJeu {
      */
 
     public void bougerPion(int caseDepart, int caseArrivee) {
-        Guerrier a=cases[caseDepart-1];
+        cases[caseArrivee-1]=cases[caseDepart-1];
         cases[caseDepart-1]=null;
-        cases[caseArrivee-1]=a;
     }
 
     /**
