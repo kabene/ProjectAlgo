@@ -123,7 +123,7 @@ public class JeuGuerrier {
      *
      * @param caseAtt:case de l'attaquant
      * @param caseDef: case de l'attaqué
-     * @return: INT  entre 1 et 4  pour les différents cas de combats
+     * @return INT  entre 1 et 5  pour les différents cas de combats
      */
 	private static int seBattre(int caseAtt, int caseDef){
 	    Guerrier attaquant = grille.donnerPion(caseAtt);
@@ -135,23 +135,23 @@ public class JeuGuerrier {
 	    if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0) {
             grille.supprimerPion(caseAtt);
             grille.supprimerPion(caseDef);
-            plateau.afficherInformation("les deux guerriers sont morts!");
+            plateau.afficherInformation("Les deux guerriers sont morts !");
             return 1;
         }else if(defenseur.getPtsVie()<=0) {
             grille.bougerPion(caseAtt, caseDef);
-            plateau.afficherInformation("le defenseur est mort!");
+            plateau.afficherInformation("Le defenseur est mort!");
             return 2;
         }else if(attaquant.getPtsVie()<=0){
 	        grille.supprimerPion(caseAtt);
-            plateau.afficherInformation("l'attaquant est mort!");
+            plateau.afficherInformation("L'attaquant est mort!");
 	        return 3;
         }else if(valAtt>valDef){
-	        plateau.afficherInformation("l'attaquant a frappé :"+valAtt+"pts \n"+"le defensseur riposte de :"+valDef );
-	        plateau.afficherInformation2("l'attaqyant a réussi son attaque");
+	        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n"+"Le defensseur riposte de "+valDef + " !");
+	        plateau.afficherInformation2("L'attaquant a réussi son attaque !");
 	        return 4;
         }
-        plateau.afficherInformation("l'attaquant a frappé :"+valAtt+"pts \n" +"le defensseur riposte de :"+valDef);
-        plateau.afficherInformation2("l'attaquant a raté son attaque");
+        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n" +"le defensseur riposte de "+valDef + " !");
+        plateau.afficherInformation2("L'attaquant a raté son attaque !");
         return 5;
     }
 
