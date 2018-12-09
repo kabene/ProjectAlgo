@@ -17,6 +17,8 @@ public class JeuGuerrier {
 	private static PlateauDeJeu plateau; // panneau graphique du jeu
 	private static De de = new DeJeu();
 
+
+
 	public static void main(String[] args) {
 
 		System.out.println("Bienvenue au jeu des guerriers !");
@@ -44,6 +46,7 @@ public class JeuGuerrier {
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
 		int tourMax=0;
+		Joueur Gagnant=null;
 		while(tourMax<nbrTours) {
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
@@ -54,10 +57,10 @@ public class JeuGuerrier {
 
 
                     if (grille.donnerPion(caseChoisie) != null && grille.estUnPionDuJoueur(caseChoisie, grille.donnerJoueur(i + 1))) {
+                        // déplacement si passant par la case départ
                         if (nbr + caseChoisie > nbrCases) {
                             nbr = nbr + caseChoisie - nbrCases;
-
-
+                            // déplacement si pas de conflicts, dépendant de la méthode seBattre
                             if (grille.donnerPion(nbr) == null) {
                                 grille.bougerPion(caseChoisie, nbr);
                                 grille.donnerPion(nbr).ajouterUnTour();
@@ -65,7 +68,7 @@ public class JeuGuerrier {
                                     tourMax = grille.donnerPion(nbr).getNombreDeTours();
 
                             } else {
-
+                                // déplacements si conflicts => combats
                                 int resultat = seBattre(caseChoisie, nbr);
                                 if (resultat == 2) {
                                     grille.donnerPion(nbr).ajouterUnTour();
@@ -82,13 +85,15 @@ public class JeuGuerrier {
                                         tourMax = grille.donnerPion(nbr).getNombreDeTours();
                                 }
                             }
+                            //actualisation interface graphique
                             plateau.actualiser(grille);
                         } else {
+                             //déplacement ne passant pas par la case départ
                             nbr = nbr + caseChoisie;
                             if (grille.donnerPion(nbr) == null) {
                                 grille.bougerPion(caseChoisie, nbr);
                             } else {
-
+                                // cas conflicts, se battre
                                 int resultat = seBattre(caseChoisie, nbr);
                                 if (resultat == 4) {
                                     while (grille.donnerPion(nbr) != null) {
@@ -102,6 +107,7 @@ public class JeuGuerrier {
                                     grille.bougerPion(caseChoisie, nbr);
                                 }
                             }
+                            // actualisation de l'interface graphique
                             plateau.actualiser(grille);
                         }
                     }
@@ -109,9 +115,16 @@ public class JeuGuerrier {
                 plateau.afficherGuerriers(grille.classerGuerriers());
             }
 		}
+		//plateau.afficherGagnant();
 
 	}
 
+    /**
+     *
+     * @param caseAtt:case de l'attaquant
+     * @param caseDef: case de l'attaqué
+     * @return: INT  entre 1 et 4  pour les différents cas de combats
+     */
 	private static int seBattre(int caseAtt, int caseDef){
 	    Guerrier attaquant = grille.donnerPion(caseAtt);
 	    Guerrier defenseur = grille.donnerPion(caseDef);
@@ -122,16 +135,23 @@ public class JeuGuerrier {
 	    if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0) {
             grille.supprimerPion(caseAtt);
             grille.supprimerPion(caseDef);
+            plateau.afficherInformation("les deux guerriers sont morts!");
             return 1;
         }else if(defenseur.getPtsVie()<=0) {
             grille.bougerPion(caseAtt, caseDef);
+            plateau.afficherInformation("le defenseur est mort!");
             return 2;
         }else if(attaquant.getPtsVie()<=0){
 	        grille.supprimerPion(caseAtt);
+            plateau.afficherInformation("l'attaquant est mort!");
 	        return 3;
         }else if(valAtt>valDef){
+	        plateau.afficherInformation("l'attaquant a frappé :"+valAtt+"pts \n"+"le defensseur riposte de :"+valDef );
+	        plateau.afficherInformation2("l'attaqyant a réussi son attaque");
 	        return 4;
         }
+        plateau.afficherInformation("l'attaquant a frappé :"+valAtt+"pts \n" +"le defensseur riposte de :"+valDef);
+        plateau.afficherInformation2("l'attaquant a raté son attaque");
         return 5;
     }
 

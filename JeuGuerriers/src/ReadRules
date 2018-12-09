@@ -3,3 +3,4 @@
 Rules:
 /* TODO: add new rules
 TODO: first rule: meurt si retombe sur la meme case en cas de tableau bourrer
+TODO: Match à mort => tout les x tours (un lancé de dé pour annoncer le x?) et une méthode sebattreMatchAmort si compteur tours= num x
