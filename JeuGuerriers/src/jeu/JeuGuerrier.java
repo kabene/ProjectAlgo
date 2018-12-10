@@ -1,7 +1,6 @@
 package jeu;
 
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**
  * @author Lecharlier Loic
@@ -36,6 +35,9 @@ public class JeuGuerrier {
 		int nbreJetons = UtilitairesJeux.lireEntierPositif("Le nombre de guerriers est de minimum 1");
 		System.out.print("Entrez le nombre de points de vie des guerriers : ");
 		int ptsVie = UtilitairesJeux.lireEntierPositif("Le nombre de points de vie est de minimum 1");
+        System.out.print("tous les n tours se déroule un match à mort choissisez ce nombre: ");
+        int tourMatchAmort= scanner.nextInt();
+
 
 		String[] nomJoueurs = new String[nbreJoueurs];
 		System.out.println("Entrez les noms des joueurs selon l'ordre du jeu : ");
@@ -43,10 +45,15 @@ public class JeuGuerrier {
 			System.out.print("Entrez le nom du joueur " + numJoueur + " : ");
 			nomJoueurs[numJoueur - 1] = UtilitairesJeux.lireStringNonVide("Le nom doit contenir au moins une lettre");
 		}
+
+		nbrCases=nbrCorrecte(nbrCases,nbreJoueurs,nbreJetons);
+
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
+
 		int tourMax=0;
 		Joueur Gagnant=null;
+
 		while(tourMax<nbrTours) {
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
@@ -118,9 +125,25 @@ public class JeuGuerrier {
 		//plateau.afficherGagnant();
 
 	}
+    /**
+     * @param nbrcase:nbr de cases choisies
+     * @param nbrjoueur:nbr de joueur choisi
+     * @param nbrguerrier:nbr de guerrier choisis
+     * @return nbr de case corriger en fonction du nombre de joueur et de guerrier
+     */
+    private static int nbrCorrecte( int nbrcase,int nbrjoueur,int nbrguerrier){
+        if(nbrguerrier * nbrjoueur > nbrcase){
+            while (nbrcase< nbrjoueur*nbrguerrier) {
+                System.out.print("nbr cases trop petit par rapport au nombre de guerrier par joueur veuillez réantrez un nombre de case supérieur à " + nbrjoueur * nbrguerrier+":");
+                nbrcase = scanner.nextInt();
+            }
+            return nbrcase;
+        }
+        return nbrcase;
+    }
+
 
     /**
-     *
      * @param caseAtt:case de l'attaquant
      * @param caseDef: case de l'attaqué
      * @return INT  entre 1 et 5  pour les différents cas de combats
