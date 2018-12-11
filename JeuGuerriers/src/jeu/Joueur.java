@@ -12,6 +12,7 @@ public class Joueur {
 	private Guerrier[] guerriers ; // tableau contenant les guerriers du joueur
 	private int numJoueur ; // num�ro du joueur
 	private String nom; //nom du joueur
+	private boolean enVie; // Savoir si un joueur était encore en vie au début du tour
 	
 	/**
 	 * Cr�e un joueur du jeu des guerriers 
@@ -27,6 +28,7 @@ public class Joueur {
 		    guerriers[i]=new Guerrier(numJoueur,ptsVie,i+1);
         }
 		this.numJoueur=numJoueur;
+		enVie=true;
 
 	}
 	
@@ -56,7 +58,14 @@ public class Joueur {
 
 		return guerriers[numGuerrier-1] ;
 	}
-	
+
+	public boolean estEnVie(){
+		return enVie;
+	}
+
+	public void plusEnVie(){
+		enVie=false;
+	}
 	/** 
 	 * D�termine le nombre de guerrier encore en vie du joueur
 	 * @return le nombre de guerrier encore en vie du joueur

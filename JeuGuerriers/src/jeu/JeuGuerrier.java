@@ -52,78 +52,101 @@ public class JeuGuerrier {
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
 
 		int tourMax=0;
-		Joueur Gagnant=null;
+		int nbrJoueursEnVie=nbreJoueurs;
+		int tourActuel = 1;
 
-		while(tourMax<nbrTours) {
+		while(tourMax<nbrTours && nbrJoueursEnVie>1) {
+		    plateau.afficherInformation("Debut du tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
-                if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
-                    plateau.afficherJoueur(grille.donnerJoueur(i + 1));
-                    int nbr = de.lancer();
-                    plateau.afficherResultatDe(nbr);
-                    int caseChoisie = plateau.jouer();
+                if (tourMax < nbrTours && nbrJoueursEnVie > 1) { // Evite que les joueurs finissent le tour si un joueur a atteint les prérequis de victoire
+                    if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
+                        plateau.afficherJoueur(grille.donnerJoueur(i + 1));
+                        int nbr = de.lancer();
+                        plateau.afficherResultatDe(nbr);
+                        int caseChoisie = plateau.jouer();
 
 
-                    if (grille.donnerPion(caseChoisie) != null && grille.estUnPionDuJoueur(caseChoisie, grille.donnerJoueur(i + 1))) {
-                        // déplacement si passant par la case départ
-                        if (nbr + caseChoisie > nbrCases) {
-                            nbr = nbr + caseChoisie - nbrCases;
-                            // déplacement si pas de conflicts, dépendant de la méthode seBattre
-                            if (grille.donnerPion(nbr) == null) {
-                                grille.bougerPion(caseChoisie, nbr);
-                                grille.donnerPion(nbr).ajouterUnTour();
-                                if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
-                                    tourMax = grille.donnerPion(nbr).getNombreDeTours();
-
-                            } else {
-                                // déplacements si conflicts => combats
-                                int resultat = seBattre(caseChoisie, nbr);
-                                if (resultat == 2) {
-                                    grille.donnerPion(nbr).ajouterUnTour();
-                                    if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
-                                        tourMax = grille.donnerPion(nbr).getNombreDeTours();
-
-                                } else if (resultat == 4) {
-
-                                    while (grille.donnerPion(nbr) != null)
-                                        nbr++;
+                        if (grille.donnerPion(caseChoisie) != null && grille.estUnPionDuJoueur(caseChoisie, grille.donnerJoueur(i + 1))) {
+                            // déplacement si passant par la case départ
+                            if (nbr + caseChoisie > nbrCases) {
+                                nbr = nbr + caseChoisie - nbrCases;
+                                // déplacement si pas de conflicts, dépendant de la méthode seBattre
+                                if (grille.donnerPion(nbr) == null) {
                                     grille.bougerPion(caseChoisie, nbr);
                                     grille.donnerPion(nbr).ajouterUnTour();
                                     if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
                                         tourMax = grille.donnerPion(nbr).getNombreDeTours();
-                                }
-                            }
-                            //actualisation interface graphique
-                            plateau.actualiser(grille);
-                        } else {
-                             //déplacement ne passant pas par la case départ
-                            nbr = nbr + caseChoisie;
-                            if (grille.donnerPion(nbr) == null) {
-                                grille.bougerPion(caseChoisie, nbr);
-                            } else {
-                                // cas conflicts, se battre
-                                int resultat = seBattre(caseChoisie, nbr);
-                                if (resultat == 4) {
-                                    while (grille.donnerPion(nbr) != null) {
-                                        if (nbr != nbrCases) {
+
+                                } else {
+                                    // déplacements si conflicts => combats
+                                    int resultat = seBattre(caseChoisie, nbr);
+                                    if (resultat == 2) {
+                                        grille.donnerPion(nbr).ajouterUnTour();
+                                        if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                            tourMax = grille.donnerPion(nbr).getNombreDeTours();
+
+                                    } else if (resultat == 4) {
+
+                                        while (grille.donnerPion(nbr) != null)
                                             nbr++;
-                                        } else {
-                                            nbr = 1;
-                                            grille.donnerPion(caseChoisie).ajouterUnTour();
-                                        }
+                                        grille.bougerPion(caseChoisie, nbr);
+                                        grille.donnerPion(nbr).ajouterUnTour();
+                                        if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                            tourMax = grille.donnerPion(nbr).getNombreDeTours();
                                     }
-                                    grille.bougerPion(caseChoisie, nbr);
                                 }
+                                //actualisation interface graphique
+                                plateau.actualiser(grille);
+                            } else {
+                                //déplacement ne passant pas par la case départ
+                                nbr = nbr + caseChoisie;
+                                if (grille.donnerPion(nbr) == null) {
+                                    grille.bougerPion(caseChoisie, nbr);
+                                } else {
+                                    // cas conflicts, se battre
+                                    int resultat = seBattre(caseChoisie, nbr);
+                                    if (resultat == 4) {
+                                        while (grille.donnerPion(nbr) != null) {
+                                            if (nbr != nbrCases) {
+                                                nbr++;
+                                            } else {
+                                                nbr = 1;
+                                                grille.donnerPion(caseChoisie).ajouterUnTour();
+                                            }
+                                        }
+                                        grille.bougerPion(caseChoisie, nbr);
+                                    }
+                                }
+                                // actualisation de l'interface graphique
+                                plateau.actualiser(grille);
                             }
-                            // actualisation de l'interface graphique
-                            plateau.actualiser(grille);
                         }
                     }
-                }
-                plateau.afficherGuerriers(grille.classerGuerriers());
-            }
-		}
-		//plateau.afficherGagnant();
+                    for (int j = 0; j < nbreJoueurs; j++) {
+                        Joueur joueur = grille.donnerJoueur(j + 1);
+                        if (joueur.estEnVie())
+                            if (joueur.nombreDeGuerriersEnVie() == 0) {
+                                joueur.plusEnVie();
+                                nbrJoueursEnVie--;
+                            }
+                    }
+                    plateau.afficherGuerriers(grille.classerGuerriers());
+                    if(nbrJoueursEnVie==1) {
+                        Joueur joueurGagnant=null;
+                        for(int k=0; k<nbreJoueurs; k++){
+                            if(grille.donnerJoueur(k+1).nombreDeGuerriersEnVie()>0) {
+                                joueurGagnant = grille.donnerJoueur(k + 1);
+                                plateau.afficherInformation("Le joueur gagnant est le joueur numero " + k+1);
+                            }
+                        }
 
+                        plateau.afficherGagnant(joueurGagnant); // Affiche le joueur gagnant
+                    }else if(nbrJoueursEnVie==0)
+                        plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                }
+            }
+			tourActuel++;
+		}
 	}
     /**
      * @param nbrcase:nbr de cases choisies
@@ -173,7 +196,7 @@ public class JeuGuerrier {
 	        plateau.afficherInformation2("L'attaquant a réussi son attaque !");
 	        return 4;
         }
-        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n" +"le defensseur riposte de "+valDef + " !");
+        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n" +"Le defensseur riposte de "+valDef + " !");
         plateau.afficherInformation2("L'attaquant a raté son attaque !");
         return 5;
     }

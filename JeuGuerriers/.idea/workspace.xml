@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jeu/GrilleJeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/GrilleJeu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jeu/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu$IconCellRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu$IconCellRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Joueur.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1748">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1003">
+              <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -38,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6970">
+            <state relative-caret-position="6685">
               <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -64,8 +67,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/Joueur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+            <state relative-caret-position="1054">
+              <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+              <folding>
+                <element signature="e#1432#1433#0" expanded="true" />
+                <element signature="e#1450#1451#0" expanded="true" />
+                <element signature="e#1493#1494#0" expanded="true" />
+                <element signature="e#1505#1506#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,9 +91,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="1208">
+              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
               <folding>
+                <element signature="e#3227#3228#0" expanded="true" />
                 <element signature="e#3266#3267#0" expanded="true" />
               </folding>
             </state>
@@ -111,8 +121,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/jeu/Joueur.java" />
         <option value="$PROJECT_DIR$/src/jeu/GrilleJeu.java" />
+        <option value="$PROJECT_DIR$/src/jeu/Joueur.java" />
         <option value="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" />
       </list>
     </option>
@@ -128,6 +138,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -151,7 +162,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -161,7 +171,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544192687730" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544523298479" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -221,6 +231,7 @@
       <workItem from="1544377545198" duration="1772000" />
       <workItem from="1544430993480" duration="4368000" />
       <workItem from="1544451916277" duration="597000" />
+      <workItem from="1544520847752" duration="2293000" />
     </task>
     <task id="LOCAL-00001" summary="joueur">
       <created>1543919043370</created>
@@ -331,13 +342,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28146000" />
+    <option name="totallyTimeSpent" value="30439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.147651" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14966443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -347,7 +358,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49597314" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49530202" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,8 +366,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49731544" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" visible="true" weight="0.32577905" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49463087" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.504698" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -391,12 +402,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
+    <entry file="file://$PROJECT_DIR$/src/ReadRules">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/Guerrier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6970">
-          <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/Joueur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+            <element signature="e#1450#1451#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1505#1506#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -408,40 +432,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReadRules">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/Joueur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/Guerrier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="1208">
+          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
           <folding>
+            <element signature="e#3227#3228#0" expanded="true" />
             <element signature="e#3266#3267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6685">
+          <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1748">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1003">
+          <caret line="59" column="51" lean-forward="true" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
         </state>
       </provider>
     </entry>
