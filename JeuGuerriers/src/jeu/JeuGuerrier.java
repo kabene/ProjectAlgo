@@ -47,6 +47,7 @@ public class JeuGuerrier {
 		}
 
 		nbrCases=nbrCorrecte(nbrCases,nbreJoueurs,nbreJetons);
+        if(nbrCases%2!=0) nbrCases++; // Si un nombre de cases impair est entré, le tableau est quand même créé, mais avec une case en plus
 
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
@@ -56,7 +57,6 @@ public class JeuGuerrier {
 		int tourActuel = 1;
 
 		while(tourMax<nbrTours && nbrJoueursEnVie>1) {
-		    plateau.afficherInformation("Debut du tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (tourMax < nbrTours && nbrJoueursEnVie > 1) { // Evite que les joueurs finissent le tour si un joueur a atteint les prérequis de victoire
                     if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
@@ -121,28 +121,31 @@ public class JeuGuerrier {
                                 plateau.actualiser(grille);
                             }
                         }
-                    }
-                    for (int j = 0; j < nbreJoueurs; j++) {
-                        Joueur joueur = grille.donnerJoueur(j + 1);
-                        if (joueur.estEnVie())
-                            if (joueur.nombreDeGuerriersEnVie() == 0) {
-                                joueur.plusEnVie();
-                                nbrJoueursEnVie--;
-                            }
-                    }
-                    plateau.afficherGuerriers(grille.classerGuerriers());
-                    if(nbrJoueursEnVie==1) {
-                        Joueur joueurGagnant=null;
-                        for(int k=0; k<nbreJoueurs; k++){
-                            if(grille.donnerJoueur(k+1).nombreDeGuerriersEnVie()>0) {
-                                joueurGagnant = grille.donnerJoueur(k + 1);
-                                plateau.afficherInformation("Le joueur gagnant est le joueur numero " + k+1);
-                            }
+                        if(tourMax==nbrTours)
+                            plateau.afficherGagnant(grille.donnerJoueur(i+1));
+                        for (int j = 0; j < nbreJoueurs; j++) {
+                            Joueur joueur = grille.donnerJoueur(j + 1);
+                            if (joueur.estEnVie())
+                                if (joueur.nombreDeGuerriersEnVie() == 0) {
+                                    joueur.plusEnVie();
+                                    nbrJoueursEnVie--;
+                                }
                         }
+                        plateau.afficherGuerriers(grille.classerGuerriers());
+                        if(nbrJoueursEnVie==1) {
+                            Joueur joueurGagnant=null;
+                            for(int k=0; k<nbreJoueurs; k++){
+                                if(grille.donnerJoueur(k+1).nombreDeGuerriersEnVie()>0) {
+                                    joueurGagnant = grille.donnerJoueur(k + 1);
+                                    plateau.afficherInformation("Le joueur gagnant est le joueur numero " + (k+1));
+                                }
+                            }
 
-                        plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
-                    }else if(nbrJoueursEnVie==0)
-                        plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                            plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
+                        }else if(nbrJoueursEnVie==0)
+                            plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                    }
+
                 }
             }
 			tourActuel++;
@@ -157,7 +160,7 @@ public class JeuGuerrier {
     private static int nbrCorrecte( int nbrcase,int nbrjoueur,int nbrguerrier){
         if(nbrguerrier * nbrjoueur > nbrcase){
             while (nbrcase< nbrjoueur*nbrguerrier) {
-                System.out.print("nbr cases trop petit par rapport au nombre de guerrier par joueur veuillez réantrez un nombre de case supérieur à " + nbrjoueur * nbrguerrier+":");
+                System.out.print("nbr cases trop petit par rapport au nombre de guerrier par joueur veuillez réentrez un nombre de case supérieur à " + nbrjoueur * nbrguerrier+":");
                 nbrcase = scanner.nextInt();
             }
             return nbrcase;
@@ -192,12 +195,10 @@ public class JeuGuerrier {
             plateau.afficherInformation("L'attaquant est mort!");
 	        return 3;
         }else if(valAtt>valDef){
-	        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n"+"Le defensseur riposte de "+valDef + " !");
-	        plateau.afficherInformation2("L'attaquant a réussi son attaque !");
+	        plateau.afficherInformation("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
 	        return 4;
         }
-        plateau.afficherInformation("L'attaquant a infligé "+valAtt+" pts de degat !\n" +"Le defensseur riposte de "+valDef + " !");
-        plateau.afficherInformation2("L'attaquant a raté son attaque !");
+        plateau.afficherInformation("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
         return 5;
     }
 

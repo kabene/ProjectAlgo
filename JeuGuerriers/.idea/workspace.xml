@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/jeu/GrilleJeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/GrilleJeu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/jeu/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu$IconCellRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu$IconCellRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/PlateauDeJeu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="138" column="108" selection-start-line="138" selection-start-column="108" selection-end-line="138" selection-end-column="108" />
+            <state relative-caret-position="-255">
+              <caret line="29" column="139" selection-start-line="29" selection-start-column="139" selection-end-line="29" selection-end-column="139" />
             </state>
           </provider>
         </entry>
@@ -39,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6685">
-              <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
+            <state relative-caret-position="131">
+              <caret line="284" selection-start-line="284" selection-end-line="284" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1208">
+            <state relative-caret-position="1769">
               <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
               <folding>
                 <element signature="e#3227#3228#0" expanded="true" />
@@ -105,6 +101,7 @@
     <findStrings>
       <find>afficherJ</find>
       <find>donner</find>
+      <find>bienvenue</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,7 +166,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544523544581" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544526146335" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -229,7 +226,7 @@
       <workItem from="1544377545198" duration="1772000" />
       <workItem from="1544430993480" duration="4368000" />
       <workItem from="1544451916277" duration="597000" />
-      <workItem from="1544520847752" duration="2573000" />
+      <workItem from="1544520847752" duration="5119000" />
     </task>
     <task id="LOCAL-00001" summary="joueur">
       <created>1543919043370</created>
@@ -343,11 +340,25 @@
       <option name="project" value="LOCAL" />
       <updated>1544523321144</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="grille jeu">
+      <created>1544523564102</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1544523564102</updated>
+    </task>
+    <task id="LOCAL-00018" summary="grille jeu">
+      <created>1544523626027</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1544523626027</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30719000" />
+    <option name="totallyTimeSpent" value="33265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -363,7 +374,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49530202" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49463087" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,8 +382,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49731544" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5067114" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.49328858" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49328858" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -437,9 +448,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="284" selection-start-line="284" selection-end-line="284" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1208">
+        <state relative-caret-position="1769">
           <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
           <folding>
             <element signature="e#3227#3228#0" expanded="true" />
@@ -448,20 +469,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6685">
-          <caret line="421" column="7" selection-start-line="421" selection-start-column="7" selection-end-line="421" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="138" column="108" selection-start-line="138" selection-start-column="108" selection-end-line="138" selection-end-column="108" />
+        <state relative-caret-position="-255">
+          <caret line="29" column="139" selection-start-line="29" selection-start-column="139" selection-end-line="29" selection-end-column="139" />
         </state>
       </provider>
     </entry>
