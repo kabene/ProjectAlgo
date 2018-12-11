@@ -1,7 +1,7 @@
 package jeu;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * @author Lecharlier Loic
@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 
-public class JeuGuerrier {
+public class JeuGuerrierAmeliore {
 
 	private static Scanner scanner = new Scanner(System.in);
 	private static GrilleJeu grille; // gestion des donn�es du jeu
@@ -75,6 +75,7 @@ public class JeuGuerrier {
                 caseDefenseur=caseAlea1;
             }
             plateau.afficherInformation("<html>Le plateau étant rempli, un match à mort entre 2 guerriers aléatoires n'appartenant pas au même joueur va avoir lieu !<br>Le guerrier attaquant est celui en case " + caseAttaquant + " !<br>Le guerrier defenseur est celui en case " + caseDefenseur +" !</html>");
+            // ralentir l'affichage du combat random
             try{
                 Thread.sleep(10000);
             }catch(InterruptedException ex){
