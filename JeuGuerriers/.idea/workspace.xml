@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jeu/Niveau.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/jeu/JeuGuerrier.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/jeu/JeuGuerrier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/jeu/class-use/JeuGuerrier.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/jeu/class-use/JeuGuerrier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4828">
@@ -25,6 +22,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/jeu/Niveau.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -64,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="-64">
               <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#2674#2675#0" expanded="true" />
@@ -73,6 +79,15 @@
                 <element signature="e#4166#4167#0" expanded="true" />
                 <element signature="e#4203#4204#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="82" column="101" selection-start-line="82" selection-start-column="101" selection-end-line="82" selection-end-column="101" />
             </state>
           </provider>
         </entry>
@@ -92,6 +107,7 @@
       <find>donner</find>
       <find>bienvenue</find>
       <find>tourMax</find>
+      <find>4</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -109,8 +125,9 @@
         <option value="$PROJECT_DIR$/src/jeu/Joueur.java" />
         <option value="$PROJECT_DIR$/src/jeu/GrilleJeu.java" />
         <option value="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" />
-        <option value="$PROJECT_DIR$/src/jeu/Niveau.java" />
         <option value="$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java" />
+        <option value="$PROJECT_DIR$/src/jeu/Niveau.java" />
+        <option value="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" />
       </list>
     </option>
   </component>
@@ -158,7 +175,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544536312042" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544537291148" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -174,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.JeuGuerrierDeBase">
     <configuration name="JeuGuerrierAmeliore" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jeu.JeuGuerrierAmeliore" />
       <module name="JeuGuerriers" />
@@ -188,8 +205,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JeuGuerrierDeBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jeu.JeuGuerrierDeBase" />
+      <module name="JeuGuerriers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jeu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JoueurTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JeuGuerriers" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jeu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jeu" />
+      <option name="MAIN_CLASS_NAME" value="jeu.JoueurTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JeuGuerrierDeBase" />
+        <item itemvalue="JUnit.JoueurTest" />
         <item itemvalue="Application.JeuGuerrierAmeliore" />
       </list>
     </recent_temporary>
@@ -219,7 +265,7 @@
       <workItem from="1544430993480" duration="4368000" />
       <workItem from="1544451916277" duration="597000" />
       <workItem from="1544520847752" duration="8196000" />
-      <workItem from="1544531337620" duration="4585000" />
+      <workItem from="1544531337620" duration="5439000" />
     </task>
     <task id="LOCAL-00001" summary="joueur">
       <created>1543919043370</created>
@@ -368,11 +414,23 @@
       <option name="project" value="LOCAL" />
       <updated>1544533066970</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="samer le jeu de base">
+      <created>1544536361261</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1544536361261</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="JoueurTest - 2018.12.11 at 14h 57m 41s.xml">
+      <configuration name="JoueurTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40927000" />
+    <option name="totallyTimeSpent" value="41781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -388,7 +446,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4986577" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49328858" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49261746" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,8 +454,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49731544" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49261746" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5073826" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4919463" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -417,19 +475,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="joueur" />
     <MESSAGE value="grille jeu" />
-    <option name="LAST_COMMIT_MESSAGE" value="grille jeu" />
+    <MESSAGE value="samer le jeu de base" />
+    <option name="LAST_COMMIT_MESSAGE" value="samer le jeu de base" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bin/jeu/JeuGuerrier.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1798" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeuTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReadRules">
@@ -449,20 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#2674#2675#0" expanded="true" />
-            <element signature="e#2723#2724#0" expanded="true" />
-            <element signature="e#3063#3064#0" expanded="true" />
-            <element signature="e#4166#4167#0" expanded="true" />
-            <element signature="e#4203#4204#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/DeJeu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -477,19 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/Niveau.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
-          <folding>
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4828">
@@ -497,6 +522,48 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/JoueurTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/Niveau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="e#2674#2675#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#4166#4167#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="82" column="101" selection-start-line="82" selection-start-column="101" selection-end-line="82" selection-end-column="101" />
         </state>
       </provider>
     </entry>

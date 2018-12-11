@@ -91,8 +91,9 @@ public class GrilleJeu {
      */
 
     public void bougerPion(int caseDepart, int caseArrivee) {
-        cases[caseArrivee-1]=cases[caseDepart-1];
+        Guerrier memo = cases[caseDepart-1];
         cases[caseDepart-1]=null;
+        cases[caseArrivee-1]=memo;
     }
 
     /**

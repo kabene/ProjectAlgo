@@ -80,7 +80,7 @@ public class JeuGuerrierDeBase {
 
                                         } else if (resultat == 4) {
 
-                                            while (grille.donnerPion(nbr) != null)
+                                            while (grille.donnerPion(nbr) != null && nbr!=caseChoisie)
                                                 nbr++;
                                             grille.bougerPion(caseChoisie, nbr);
                                             grille.donnerPion(nbr).ajouterUnTour();
@@ -100,7 +100,7 @@ public class JeuGuerrierDeBase {
 
                                         int resultat = seBattre(caseChoisie, nbr);
                                         if (resultat == 4) {
-                                            while (grille.donnerPion(nbr) != null) {
+                                            while (grille.donnerPion(nbr) != null && nbr!=caseChoisie) {
                                                 if (nbr != nbrCases) {
                                                     nbr++;
                                                 } else {
