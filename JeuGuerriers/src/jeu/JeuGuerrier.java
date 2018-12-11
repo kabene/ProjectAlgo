@@ -35,7 +35,7 @@ public class JeuGuerrier {
 		int nbreJetons = UtilitairesJeux.lireEntierPositif("Le nombre de guerriers est de minimum 1");
 		System.out.print("Entrez le nombre de points de vie des guerriers : ");
 		int ptsVie = UtilitairesJeux.lireEntierPositif("Le nombre de points de vie est de minimum 1");
-        System.out.print("tous les n tours se déroule un match à mort choissisez ce nombre: ");
+        System.out.print("Tous les n tours se déroule un match à mort choissisez ce nombre(Entrez 0 si vous ne souhaitez pas de match à mort) : ");
         int tourMatchAmort= scanner.nextInt();
 
 
@@ -47,7 +47,10 @@ public class JeuGuerrier {
 		}
 
 		nbrCases=nbrCorrecte(nbrCases,nbreJoueurs,nbreJetons);
-        if(nbrCases%2!=0) nbrCases++; // Si un nombre de cases impair est entré, le tableau est quand même créé, mais avec une case en plus
+        if(nbrCases%2!=0){
+            nbrCases++;// Si un nombre de cases impair est entré, le tableau est quand même créé, mais avec une case en plus
+            System.out.println("Le nombre de case étant impair, le tableau a été défini avec une case de plus");
+        }
 
 		grille = new GrilleJeu(nbreJoueurs, nbrCases, nbreJetons, nbrTours, ptsVie, nomJoueurs);
 		plateau = new PlateauDeJeu(nbrCases,nbreJoueurs, nbreJetons, grille);
@@ -56,7 +59,9 @@ public class JeuGuerrier {
 		int nbrJoueursEnVie=nbreJoueurs;
 		int tourActuel = 1;
 
+        plateau.afficherGuerriers(grille.classerGuerriers()); //Afficher le classement au début du jeu
 		while(tourMax<nbrTours && nbrJoueursEnVie>1) {
+		    plateau.afficherInformation("Tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (tourMax < nbrTours && nbrJoueursEnVie > 1) { // Evite que les joueurs finissent le tour si un joueur a atteint les prérequis de victoire
                     if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
@@ -79,20 +84,24 @@ public class JeuGuerrier {
 
                                 } else {
                                     // déplacements si conflicts => combats
-                                    int resultat = seBattre(caseChoisie, nbr);
-                                    if (resultat == 2) {
-                                        grille.donnerPion(nbr).ajouterUnTour();
-                                        if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
-                                            tourMax = grille.donnerPion(nbr).getNombreDeTours();
+                                    if(tourMatchAmort!=0 && tourActuel%tourMatchAmort==0){
+                                        seBattreAMort(caseChoisie,nbr);
+                                    }else {
+                                        int resultat = seBattre(caseChoisie, nbr);
+                                        if (resultat == 2) {
+                                            grille.donnerPion(nbr).ajouterUnTour();
+                                            if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                                tourMax = grille.donnerPion(nbr).getNombreDeTours();
 
-                                    } else if (resultat == 4) {
+                                        } else if (resultat == 4) {
 
-                                        while (grille.donnerPion(nbr) != null)
-                                            nbr++;
-                                        grille.bougerPion(caseChoisie, nbr);
-                                        grille.donnerPion(nbr).ajouterUnTour();
-                                        if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
-                                            tourMax = grille.donnerPion(nbr).getNombreDeTours();
+                                            while (grille.donnerPion(nbr) != null)
+                                                nbr++;
+                                            grille.bougerPion(caseChoisie, nbr);
+                                            grille.donnerPion(nbr).ajouterUnTour();
+                                            if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                                tourMax = grille.donnerPion(nbr).getNombreDeTours();
+                                        }
                                     }
                                 }
                                 //actualisation interface graphique
@@ -104,48 +113,56 @@ public class JeuGuerrier {
                                     grille.bougerPion(caseChoisie, nbr);
                                 } else {
                                     // cas conflicts, se battre
-                                    int resultat = seBattre(caseChoisie, nbr);
-                                    if (resultat == 4) {
-                                        while (grille.donnerPion(nbr) != null) {
-                                            if (nbr != nbrCases) {
-                                                nbr++;
-                                            } else {
-                                                nbr = 1;
-                                                grille.donnerPion(caseChoisie).ajouterUnTour();
+                                    if(tourMatchAmort!=0 && tourActuel%tourMatchAmort==0){
+                                        seBattreAMort(caseChoisie,nbr);
+                                    }else {
+                                        int resultat = seBattre(caseChoisie, nbr);
+                                        if (resultat == 4) {
+                                            while (grille.donnerPion(nbr) != null) {
+                                                if (nbr != nbrCases) {
+                                                    nbr++;
+                                                } else {
+                                                    nbr = 1;
+                                                    grille.donnerPion(caseChoisie).ajouterUnTour();
+                                                    if (grille.donnerPion(caseChoisie).getNombreDeTours() > tourMax)
+                                                        tourMax = grille.donnerPion(caseChoisie).getNombreDeTours();
+                                                }
                                             }
+                                            grille.bougerPion(caseChoisie, nbr);
                                         }
-                                        grille.bougerPion(caseChoisie, nbr);
                                     }
                                 }
                                 // actualisation de l'interface graphique
                                 plateau.actualiser(grille);
                             }
                         }
-                        if(tourMax==nbrTours)
-                            plateau.afficherGagnant(grille.donnerJoueur(i+1));
-                        for (int j = 0; j < nbreJoueurs; j++) {
-                            Joueur joueur = grille.donnerJoueur(j + 1);
-                            if (joueur.estEnVie())
-                                if (joueur.nombreDeGuerriersEnVie() == 0) {
-                                    joueur.plusEnVie();
-                                    nbrJoueursEnVie--;
-                                }
-                        }
-                        plateau.afficherGuerriers(grille.classerGuerriers());
-                        if(nbrJoueursEnVie==1) {
-                            Joueur joueurGagnant=null;
-                            for(int k=0; k<nbreJoueurs; k++){
-                                if(grille.donnerJoueur(k+1).nombreDeGuerriersEnVie()>0) {
-                                    joueurGagnant = grille.donnerJoueur(k + 1);
-                                    plateau.afficherInformation("Le joueur gagnant est le joueur numero " + (k+1));
-                                }
+                        if(tourMax==nbrTours) {
+                            plateau.afficherInformation2("Le joueur gagnant est le joueur numero " + (i+1));
+                            plateau.afficherGagnant(grille.donnerJoueur(i + 1));
+                        } else {
+                            for (int j = 0; j < nbreJoueurs; j++) {
+                                Joueur joueur = grille.donnerJoueur(j + 1);
+                                if (joueur.estEnVie())
+                                    if (joueur.nombreDeGuerriersEnVie() == 0) {
+                                        joueur.plusEnVie();
+                                        nbrJoueursEnVie--;
+                                    }
                             }
+                            plateau.afficherGuerriers(grille.classerGuerriers());
+                            if (nbrJoueursEnVie == 1) {
+                                Joueur joueurGagnant = null;
+                                for (int k = 0; k < nbreJoueurs; k++) {
+                                    if (grille.donnerJoueur(k + 1).nombreDeGuerriersEnVie() > 0) {
+                                        joueurGagnant = grille.donnerJoueur(k + 1);
+                                        plateau.afficherInformation2("Le joueur gagnant est le joueur numero " + (k + 1));
+                                    }
+                                }
 
-                            plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
-                        }else if(nbrJoueursEnVie==0)
-                            plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                                plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
+                            } else if (nbrJoueursEnVie == 0)
+                                plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                        }
                     }
-
                 }
             }
 			tourActuel++;
@@ -184,34 +201,33 @@ public class JeuGuerrier {
 	    if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0) {
             grille.supprimerPion(caseAtt);
             grille.supprimerPion(caseDef);
-            plateau.afficherInformation("Les deux guerriers sont morts !");
+            plateau.afficherInformation2("Les deux guerriers sont morts !");
             return 1;
         }else if(defenseur.getPtsVie()<=0) {
             grille.bougerPion(caseAtt, caseDef);
-            plateau.afficherInformation("Le defenseur est mort!");
+            plateau.afficherInformation2("Le defenseur est mort!");
             return 2;
         }else if(attaquant.getPtsVie()<=0){
 	        grille.supprimerPion(caseAtt);
-            plateau.afficherInformation("L'attaquant est mort!");
+            plateau.afficherInformation2("L'attaquant est mort!");
 	        return 3;
         }else if(valAtt>valDef){
-	        plateau.afficherInformation("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
+	        plateau.afficherInformation2("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
 	        return 4;
         }
-        plateau.afficherInformation("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
+        plateau.afficherInformation2("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
         return 5;
     }
     /**
      * @param caseAtt:case de l'attaquant
      * @param caseDef: case de l'attaqué
-     * @return INT  entre 2 et 3 pour savoir le vainqueur
      */
-    private static int seBattreAMort(int caseAtt, int caseDef ){
+    private static void seBattreAMort(int caseAtt, int caseDef ){
         Guerrier attaquant = grille.donnerPion(caseAtt);
         Guerrier defenseur = grille.donnerPion(caseDef);
         int frappeAttaquant=0;
         int frappeDefenseur=0;
-        while (attaquant.getPtsVie()!=0||defenseur.getPtsVie()!=0){
+        while (attaquant.getPtsVie()>0 && defenseur.getPtsVie()>0){
             int valAtt = de.lancer();
             int valDef = de.lancer();
             frappeAttaquant+=valAtt;
@@ -219,16 +235,18 @@ public class JeuGuerrier {
             defenseur.setPtsVie(defenseur.getPtsVie()-valAtt);
             attaquant.setPtsVie(attaquant.getPtsVie()-valDef);
         }
-        if(attaquant.getPtsVie()!=0){
-            grille.supprimerPion(caseDef);
-            plateau.afficherInformation(" MATCH A MORT:Le Defenseur a infligé :"+frappeDefenseur+"pts de dégats");
-            plateau.afficherInformation2(" l'attaquant est mort  que son âme repose en paix ");
-            return 3;
-        }else {
+        if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0){
             grille.supprimerPion(caseAtt);
-            plateau.afficherInformation(" MATCH A MORT:L'attaquant a infligé :"+frappeAttaquant+"pts de dégats");
-            plateau.afficherInformation2(" le défenseur est mort  que son âme repose en paix ");
-            return 2;
+            grille.supprimerPion(caseDef);
+            plateau.afficherInformation2("Les deux guerriers sont morts !");
+        }else if(attaquant.getPtsVie()<=0){
+            grille.supprimerPion(caseAtt);
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
+
+        }else {
+            grille.bougerPion(caseAtt,caseDef);
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
+
         }
 
 

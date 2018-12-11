@@ -44,13 +44,7 @@ public class GrilleJeu {
             for (int i = 0; i < nomDesJoueurs.length; i++) {
                 tableJoueurs[i] = new Joueur(nomDesJoueurs[i], nombreDeGuerriersParJoueur, ptsVieDeDepart, i + 1);
             }
-            // pour l'interface graphique il est précisé qu'il faut un nombre de cases pairs
-            if (nombreDeCases % 2 == 0) {
-                this.cases = new Guerrier[nombreDeCases];
-            } else {
-                this.cases = new Guerrier[nombreDeCases + 1];
-                throw new IllegalArgumentException("le nombre de case est impair, le tableau a été défini avec une case de plus");
-            }
+            this.cases = new Guerrier[nombreDeCases];
 
             int indCase = 0;
             for (int i = 0; i < nombreDeGuerriersParJoueur; i++) {

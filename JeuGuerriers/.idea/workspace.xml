@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jeu/GrilleJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/GrilleJeu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -26,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="29" column="139" selection-start-line="29" selection-start-column="139" selection-end-line="29" selection-end-column="139" />
+            <state relative-caret-position="-1348">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
             </state>
           </provider>
         </entry>
@@ -61,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/Joueur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+            <state relative-caret-position="272">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
               <folding>
                 <element signature="e#1432#1433#0" expanded="true" />
                 <element signature="e#1450#1451#0" expanded="true" />
@@ -85,11 +87,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1769">
-              <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+            <state relative-caret-position="-1224">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
               <folding>
-                <element signature="e#3227#3228#0" expanded="true" />
-                <element signature="e#3266#3267#0" expanded="true" />
+                <element signature="e#2723#2724#0" expanded="true" />
+                <element signature="e#3063#3064#0" expanded="true" />
+                <element signature="e#4203#4204#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,6 +105,7 @@
       <find>afficherJ</find>
       <find>donner</find>
       <find>bienvenue</find>
+      <find>tourMax</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -116,8 +120,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/jeu/GrilleJeu.java" />
         <option value="$PROJECT_DIR$/src/jeu/Joueur.java" />
+        <option value="$PROJECT_DIR$/src/jeu/GrilleJeu.java" />
         <option value="$PROJECT_DIR$/src/jeu/JeuGuerrier.java" />
       </list>
     </option>
@@ -166,7 +170,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544526146335" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544529093147" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -226,7 +230,7 @@
       <workItem from="1544377545198" duration="1772000" />
       <workItem from="1544430993480" duration="4368000" />
       <workItem from="1544451916277" duration="597000" />
-      <workItem from="1544520847752" duration="5119000" />
+      <workItem from="1544520847752" duration="7942000" />
     </task>
     <task id="LOCAL-00001" summary="joueur">
       <created>1543919043370</created>
@@ -354,11 +358,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544523626027</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="grille jeu">
+      <created>1544526157350</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1544526157350</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33265000" />
+    <option name="totallyTimeSpent" value="36088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -430,8 +441,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/Joueur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="66" column="20" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="20" />
+        <state relative-caret-position="272">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
           <folding>
             <element signature="e#1432#1433#0" expanded="true" />
             <element signature="e#1450#1451#0" expanded="true" />
@@ -460,19 +471,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1769">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="-1224">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
           <folding>
-            <element signature="e#3227#3228#0" expanded="true" />
-            <element signature="e#3266#3267#0" expanded="true" />
+            <element signature="e#2723#2724#0" expanded="true" />
+            <element signature="e#3063#3064#0" expanded="true" />
+            <element signature="e#4203#4204#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="29" column="139" selection-start-line="29" selection-start-column="139" selection-end-line="29" selection-end-column="139" />
+        <state relative-caret-position="-1348">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
         </state>
       </provider>
     </entry>
