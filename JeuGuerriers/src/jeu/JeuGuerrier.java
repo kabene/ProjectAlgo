@@ -201,6 +201,38 @@ public class JeuGuerrier {
         plateau.afficherInformation("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
         return 5;
     }
+    /**
+     * @param caseAtt:case de l'attaquant
+     * @param caseDef: case de l'attaqué
+     * @return INT  entre 2 et 3 pour savoir le vainqueur
+     */
+    private static int seBattreAMort(int caseAtt, int caseDef ){
+        Guerrier attaquant = grille.donnerPion(caseAtt);
+        Guerrier defenseur = grille.donnerPion(caseDef);
+        int frappeAttaquant=0;
+        int frappeDefenseur=0;
+        while (attaquant.getPtsVie()!=0||defenseur.getPtsVie()!=0){
+            int valAtt = de.lancer();
+            int valDef = de.lancer();
+            frappeAttaquant+=valAtt;
+            frappeDefenseur+=valDef;
+            defenseur.setPtsVie(defenseur.getPtsVie()-valAtt);
+            attaquant.setPtsVie(attaquant.getPtsVie()-valDef);
+        }
+        if(attaquant.getPtsVie()!=0){
+            grille.supprimerPion(caseDef);
+            plateau.afficherInformation(" MATCH A MORT:Le Defenseur a infligé :"+frappeDefenseur+"pts de dégats");
+            plateau.afficherInformation2(" l'attaquant est mort  que son âme repose en paix ");
+            return 3;
+        }else {
+            grille.supprimerPion(caseAtt);
+            plateau.afficherInformation(" MATCH A MORT:L'attaquant a infligé :"+frappeAttaquant+"pts de dégats");
+            plateau.afficherInformation2(" le défenseur est mort  que son âme repose en paix ");
+            return 2;
+        }
+
+
+    }
 
 
 
