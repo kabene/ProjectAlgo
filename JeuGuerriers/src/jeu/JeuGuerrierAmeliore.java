@@ -2,7 +2,6 @@ package jeu;
 
 import java.util.Scanner;
 
-
 /**
  * @author Lecharlier Loic
  * 
@@ -60,13 +59,13 @@ public class JeuGuerrierAmeliore {
 		int nbrJoueursEnVie=nbreJoueurs;
 		int tourActuel = 1;
 
-        if(nbrCases==nbreJoueurs*nbreJetons){
-            int caseAlea1=(int)(Math.random()*nbrCases);
-            int caseAlea2=(int)(Math.random()*nbrCases);
+        if(nbrCases==nbreJoueurs*nbreJetons){ //Si le tableau est plein, un match à mort entre 2 guerriers aléatoires(n'appartenant pas au même joueur) est effectué
+            int caseAlea1=(int)(Math.random()*nbrCases) + 1;
+            int caseAlea2=(int)(Math.random()*nbrCases) + 1;
             int caseAttaquant;
             int caseDefenseur;
             while(grille.donnerPion(caseAlea2).getNumJoueur()==grille.donnerPion(caseAlea1).getNumJoueur())
-                caseAlea2=(int)(Math.random()*nbrCases);
+                caseAlea2=(int)(Math.random()*nbrCases) +1;
             if(caseAlea2>caseAlea1){
                 caseAttaquant=caseAlea1;
                 caseDefenseur=caseAlea2;
@@ -77,7 +76,7 @@ public class JeuGuerrierAmeliore {
             plateau.afficherInformation("<html>Le plateau étant rempli, un match à mort entre 2 guerriers aléatoires n'appartenant pas au même joueur va avoir lieu !<br>Le guerrier attaquant est celui en case " + caseAttaquant + " !<br>Le guerrier defenseur est celui en case " + caseDefenseur +" !</html>");
             // ralentir l'affichage du combat random
             try{
-                Thread.sleep(10000);
+                Thread.sleep(10000); // Ralentir la suite d'action afin de permettre aux joueurs de lire
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }

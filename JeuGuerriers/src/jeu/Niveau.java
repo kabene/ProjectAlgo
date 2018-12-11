@@ -4,48 +4,43 @@ public class Niveau {
     private int experience;
     private int lvl;
 
-    public Niveau() {
+    public Niveau(){
         experience=0;
         lvl=1;
     }
 
-    public int getExperience() {
+    /**
+     *
+     * @param experience experience ajoutée
+     * @return un boolean qui indique si le lvl a augmenté
+     */
+    public boolean ajouterExperience(int experience){
+        this.experience+=experience;
+        if(lvl==1)
+            if(this.experience>=100){
+                lvl=2;
+                this.experience-=100;
+                return true;
+            }
+        if(lvl==2)
+            if(this.experience>125){
+                lvl=3;
+                this.experience-=125;
+                return true;
+            }
+        if(lvl==3)
+            if(this.experience>150){
+                lvl=4;
+                this.experience-=150;
+                return true;
+            }
+        return false;
+    }
+    public int getExperience(){
         return experience;
     }
 
-    public int getLvl() {
+    public int getLvl(){
         return lvl;
     }
-
-    public int addExperience (int experience, Guerrier a){
-            this.experience += experience;
-            if (lvl == 4) {
-              return 1;
-            }
-            if (lvl == 1) {
-                if (this.experience >= 100) {
-                    lvl = 2;
-                    return 2;
-                }
-            }
-            if (lvl == 2) {
-                if (this.experience >= 125) {
-                    lvl = 3;
-                    return 3;
-                }
-            }
-            if (lvl == 3) {
-                if (this.experience  >=150) {
-                    lvl = 4;
-                    return 4;
-                }
-            }
-
-            throw new IllegalStateException("le niveau est suppérieur à 3");
-    }
-
-
-
-
 }
-
