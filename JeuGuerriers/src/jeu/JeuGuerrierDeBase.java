@@ -143,7 +143,7 @@ public class JeuGuerrierDeBase {
                                 plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
                             } else if (nbrJoueursEnVie == 0) {
                                 plateau.afficherGagnant(null);
-                                plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                                plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // sSi il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
                             }
                         }
 
