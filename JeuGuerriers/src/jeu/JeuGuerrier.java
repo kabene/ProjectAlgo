@@ -1,6 +1,7 @@
 package jeu;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Lecharlier Loic
@@ -59,7 +60,30 @@ public class JeuGuerrier {
 		int nbrJoueursEnVie=nbreJoueurs;
 		int tourActuel = 1;
 
-        plateau.afficherGuerriers(grille.classerGuerriers()); //Afficher le classement au début du jeu
+        if(nbrCases==nbreJoueurs*nbreJetons){
+            int caseAlea1=(int)(Math.random()*nbrCases);
+            int caseAlea2=(int)(Math.random()*nbrCases);
+            int caseAttaquant;
+            int caseDefenseur;
+            while(grille.donnerPion(caseAlea2).getNumJoueur()==grille.donnerPion(caseAlea1).getNumJoueur())
+                caseAlea2=(int)(Math.random()*nbrCases);
+            if(caseAlea2>caseAlea1){
+                caseAttaquant=caseAlea1;
+                caseDefenseur=caseAlea2;
+            } else {
+                caseAttaquant=caseAlea2;
+                caseDefenseur=caseAlea1;
+            }
+            plateau.afficherInformation("<html>Le plateau étant rempli, un match à mort entre 2 guerriers aléatoires n'appartenant pas au même joueur va avoir lieu !<br>Le guerrier attaquant est celui en case " + caseAttaquant + " !<br>Le guerrier defenseur est celui en case " + caseDefenseur +" !</html>");
+            try{
+                Thread.sleep(10000);
+            }catch(InterruptedException ex){
+                Thread.currentThread().interrupt();
+            }
+            seBattreAMort(caseAttaquant,caseDefenseur);
+            plateau.actualiser(grille);
+        }
+		plateau.afficherGuerriers(grille.classerGuerriers()); //Afficher le classement au début du jeu
 		while(tourMax<nbrTours && nbrJoueursEnVie>1) {
 		    plateau.afficherInformation("Tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
