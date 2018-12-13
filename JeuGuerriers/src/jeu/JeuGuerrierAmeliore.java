@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @author Abene Karim, Sivixay Celestin
  * 
- *         Classe d'ex�cution du jeu
+ *         Classe d'ex�cution du jeu amélioré
  *
  */
 
