@@ -183,8 +183,10 @@ public class JeuGuerrierAmeliore {
                                 }
 
                                 plateau.afficherGagnant(joueurGagnant); //Affiche le joueur gagnant
-                            } else if (nbrJoueursEnVie == 0)
-                                plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // Si il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                            } else if (nbrJoueursEnVie == 0) {
+                                plateau.afficherGagnant(null);
+                                plateau.afficherInformation("Tous les guerriers sont morts, il n'y a aucun gagnant !"); // qSi il ne reste plus que 2guerriers et qu'ils s'entretuent, il n'y a aucun gagnant
+                            }
                         }
                     }
                 }
