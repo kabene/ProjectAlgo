@@ -313,25 +313,32 @@ public class JeuGuerrierAmeliore {
     private static void seBattreAMort(int caseAtt, int caseDef ){
         Guerrier attaquant = grille.donnerPion(caseAtt);
         Guerrier defenseur = grille.donnerPion(caseDef);
+        int nivDef=defenseur.getNiveau().getLvl();
+        int nivAtt=attaquant.getNiveau().getLvl();
         int frappeAttaquant=0;
         int frappeDefenseur=0;
         while (attaquant.getPtsVie()>0 && defenseur.getPtsVie()>0){
             int valAtt = de.lancer();
+            for(int i=nivAtt; i>1; i--){
+                valAtt+=i;
+            }
             int valDef = de.lancer();
+            for(int i=nivDef; i>1; i--){
+                valDef+=i;
+            }
             frappeAttaquant+=valAtt;
             frappeDefenseur+=valDef;
             defenseur.setPtsVie(defenseur.getPtsVie()-valAtt);
             attaquant.setPtsVie(attaquant.getPtsVie()-valDef);
-            if(attaquant.getNiveau().ajouterExperience(valAtt)) {
-                attaquant.setPtsVie(attaquant.getPtsVieMax());
-                plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort !");
-                try{
-                    Thread.sleep(3000);
-                }catch(InterruptedException ex){
-                    Thread.currentThread().interrupt();
-                }
-            }
-            if(defenseur.getNiveau().ajouterExperience(valDef)){
+
+        }
+        if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0){
+            grille.supprimerPion(caseAtt);
+            grille.supprimerPion(caseDef);
+            plateau.afficherInformation2("Les deux guerriers sont morts !");
+        }else if(attaquant.getPtsVie()<=0){
+            grille.supprimerPion(caseAtt);
+            if(defenseur.getNiveau().ajouterExperience(defenseur.getPtsVieMax())){
                 defenseur.setPtsVie(defenseur.getPtsVieMax());
                 plateau.afficherInformation("Le defenseur a augmenté de niveau durant le match à mort !");
                 try{
@@ -340,17 +347,19 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-        }
-        if(attaquant.getPtsVie()<=0 && defenseur.getPtsVie()<=0){
-            grille.supprimerPion(caseAtt);
-            grille.supprimerPion(caseDef);
-            plateau.afficherInformation2("Les deux guerriers sont morts !");
-        }else if(attaquant.getPtsVie()<=0){
-            grille.supprimerPion(caseAtt);
             plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
 
         }else {
             grille.bougerPion(caseAtt,caseDef);
+            if(attaquant.getNiveau().ajouterExperience(attaquant.getPtsVieMax())) {
+                attaquant.setPtsVie(attaquant.getPtsVieMax());
+                plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort !");
+                try{
+                    Thread.sleep(3000);
+                }catch(InterruptedException ex){
+                    Thread.currentThread().interrupt();
+                }
+            }
             plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
 
         }
