@@ -347,7 +347,7 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur ("+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
 
         }else {
             grille.bougerPion(caseAtt,caseDef);
@@ -360,7 +360,7 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur ("+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
 
         }
 
