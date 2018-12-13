@@ -1,5 +1,10 @@
 package jeu;
-
+/**
+ * @author Abene Karim, Sivixay Celestin
+ *
+ *         Classe de test
+ *
+ */
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

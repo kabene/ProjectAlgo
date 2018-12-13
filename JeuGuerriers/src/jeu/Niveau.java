@@ -1,5 +1,9 @@
 package jeu;
-
+/**
+ * @author Abene Karim, Sivixay Celestin
+ *
+ *
+ */
 public class Niveau {
     private int experience;
     private int lvl;

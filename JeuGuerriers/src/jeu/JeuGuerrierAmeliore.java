@@ -3,7 +3,7 @@ package jeu;
 import java.util.Scanner;
 
 /**
- * @author Lecharlier Loic
+ * @author Abene Karim, Sivixay Celestin
  * 
  *         Classe d'ex�cution du jeu
  *
@@ -35,7 +35,7 @@ public class JeuGuerrierAmeliore {
 		int nbreJetons = UtilitairesJeux.lireEntierPositif("Le nombre de guerriers est de minimum 1");
 		System.out.print("Entrez le nombre de points de vie des guerriers : ");
 		int ptsVie = UtilitairesJeux.lireEntierPositif("Le nombre de points de vie est de minimum 1");
-        System.out.print("Tous les n tours se déroule un match à mort choissisez ce nombre(Entrez 0 si vous ne souhaitez pas de match à mort) : ");
+        System.out.print("Tous les n tours de jeu se déroule un match à mort choissisez ce nombre(Entrez 0 si vous ne souhaitez pas de match à mort) : ");
         int tourMatchAmort= scanner.nextInt();
 
 
@@ -109,7 +109,10 @@ public class JeuGuerrierAmeliore {
                                 } else {
                                     // déplacements si conflicts => combats
                                     if(tourMatchAmort!=0 && tourActuel%tourMatchAmort==0){
-                                        seBattreAMort(caseChoisie,nbr);
+                                        int resultat = seBattreAMort(caseChoisie,nbr);
+                                        if(resultat==2) grille.donnerPion(nbr).ajouterUnTour();
+                                        if (grille.donnerPion(nbr).getNombreDeTours() > tourMax)
+                                            tourMax = grille.donnerPion(nbr).getNombreDeTours();
                                     }else {
                                         int resultat = seBattre(caseChoisie, nbr);
                                         if (resultat == 2) {
@@ -161,6 +164,7 @@ public class JeuGuerrierAmeliore {
                             }
                         }
                         if(tourMax==nbrTours) {
+                            plateau.afficherGuerriers(grille.classerGuerriers());
                             plateau.afficherInformation2("Le joueur gagnant est le joueur numero " + (i+1));
                             plateau.afficherGagnant(grille.donnerJoueur(i + 1));
                         } else {
@@ -240,7 +244,7 @@ public class JeuGuerrierAmeliore {
         }else if(defenseur.getPtsVie()<=0) {
             grille.bougerPion(caseAtt, caseDef);
             if(attaquant.getNiveau().ajouterExperience(valAtt*5+20)) {
-                attaquant.setPtsVie(attaquant.getPtsVieMax());
+                attaquant.levelUp();
                 plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -253,7 +257,7 @@ public class JeuGuerrierAmeliore {
         }else if(attaquant.getPtsVie()<=0){
 	        grille.supprimerPion(caseAtt);
 	        if(defenseur.getNiveau().ajouterExperience(valDef*5+20)){
-	            defenseur.setPtsVie(defenseur.getPtsVieMax());
+	            defenseur.levelUp();
 	            plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -265,7 +269,7 @@ public class JeuGuerrierAmeliore {
 	        return 3;
         }else if(valAtt>valDef){
             if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
-                attaquant.setPtsVie(attaquant.getPtsVieMax());
+                attaquant.levelUp();
                 plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -274,7 +278,7 @@ public class JeuGuerrierAmeliore {
                 }
             }
             if(defenseur.getNiveau().ajouterExperience(valDef*5)){
-                defenseur.setPtsVie(defenseur.getPtsVieMax());
+                defenseur.levelUp();
                 plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -282,11 +286,11 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-	        plateau.afficherInformation2("<html> L'attaquant("+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur("+attaquant.getNiveau().getLvl()+") riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
+	        plateau.afficherInformation2("<html> L'attaquant(Niv."+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur(Niv."+attaquant.getNiveau().getLvl()+") riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
 	        return 4;
         }
         if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
-            attaquant.setPtsVie(attaquant.getPtsVieMax());
+            attaquant.levelUp();
             plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
                 Thread.sleep(3500);
@@ -295,7 +299,7 @@ public class JeuGuerrierAmeliore {
             }
         }
         if(defenseur.getNiveau().ajouterExperience(valDef*5)){
-            defenseur.setPtsVie(defenseur.getPtsVieMax());
+            defenseur.levelUp();
             plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
                 Thread.sleep(3500);
@@ -303,14 +307,14 @@ public class JeuGuerrierAmeliore {
                 Thread.currentThread().interrupt();
             }
         }
-        plateau.afficherInformation2("<html> L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur niveau ("+defenseur.getNiveau().getLvl() +") riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
+        plateau.afficherInformation2("<html> L'attaquant (Niv."+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur (Niv."+defenseur.getNiveau().getLvl() +") riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
         return 5;
     }
     /**
      * @param caseAtt:case de l'attaquant
      * @param caseDef: case de l'attaqué
      */
-    private static void seBattreAMort(int caseAtt, int caseDef ){
+    private static int seBattreAMort(int caseAtt, int caseDef ){
         Guerrier attaquant = grille.donnerPion(caseAtt);
         Guerrier defenseur = grille.donnerPion(caseDef);
         int nivDef=defenseur.getNiveau().getLvl();
@@ -336,10 +340,11 @@ public class JeuGuerrierAmeliore {
             grille.supprimerPion(caseAtt);
             grille.supprimerPion(caseDef);
             plateau.afficherInformation2("Les deux guerriers sont morts !");
+            return 0;
         }else if(attaquant.getPtsVie()<=0){
             grille.supprimerPion(caseAtt);
             if(defenseur.getNiveau().ajouterExperience(defenseur.getPtsVieMax())){
-                defenseur.setPtsVie(defenseur.getPtsVieMax());
+                defenseur.levelUp();
                 plateau.afficherInformation("Le defenseur a augmenté de niveau durant le match à mort et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -347,12 +352,12 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur ("+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
-
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant (Niv."+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur (Niv."+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>L'attaquant est mort que son âme repose en paix</html>");
+            return 1;
         }else {
             grille.bougerPion(caseAtt,caseDef);
             if(attaquant.getNiveau().ajouterExperience(attaquant.getPtsVieMax())) {
-                attaquant.setPtsVie(attaquant.getPtsVieMax());
+                attaquant.levelUp();
                 plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
                     Thread.sleep(3500);
@@ -360,8 +365,8 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur ("+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
-
+            plateau.afficherInformation2("<html> MATCH A MORT <br>L'attaquant (Niv."+attaquant.getNiveau().getLvl()+") a infligé un total de " + frappeAttaquant + " pts de degat ! <br>Le Defenseur (Niv."+defenseur.getNiveau().getLvl() +") a infligé un total de "+frappeDefenseur+" pts de dégats ! <br>Le defenseur est mort que son âme repose en paix</html>");
+            return 2;
         }
 
 

@@ -2,7 +2,7 @@ package jeu;
 
 
 /**
- * @author Lecharlier Lo�c
+ * @author Abene Karim, Sivixay Celestin
  *
  * Classe repr�sentant un joueur du jeu des guerriers
  */

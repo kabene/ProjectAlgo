@@ -1,7 +1,7 @@
 package jeu;
 
 /**
- * @author Lecharlier Lo�c
+ * @author Abene Karim, Sivixay Celestin
  * 
  * Classe repr�sentant un guerrier du jeu des guerriers
  *
@@ -70,6 +70,14 @@ public class Guerrier {
 	}
 
 	public int getPtsVieMax(){ return ptsVieMax; }
+
+	/**
+	 * Lorsqu'un guerrier augmente de niveau, ses points de vie max augmentent de 10% et il récupère tous es points de vie
+	 */
+	public void levelUp(){
+		ptsVieMax=(int)(ptsVieMax*1.1);
+		ptsVie=ptsVieMax;
+	}
 	
 	/**
 	 * Mets le nombre de points de vie du guerrier � ptsVie ;
