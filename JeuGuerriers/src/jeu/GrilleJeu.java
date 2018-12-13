@@ -127,7 +127,7 @@ public class GrilleJeu {
         for (int i = 1; i <= tableJoueurs.length; i++) nombreEnVie += tableJoueurs[i-1].nombreDeGuerriersEnVie();
         Guerrier[] classement = new Guerrier[nombreEnVie];
 
-        int nbrGuerrierClasse=0;
+        int nbrGuerrierClasse=0; //Evite de plus tard continuer à classer des guerriers "null"
         for(int i=1; i<=cases.length; i++){
             int indClassement=0;
             if(donnerPion(i)!=null){
