@@ -43,4 +43,8 @@ public class Niveau {
     public int getLvl(){
         return lvl;
     }
+
+    public String toString(){
+        return "Niveau " + lvl + " à " + experience + " pts d'expérience";
+    }
 }
