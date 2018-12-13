@@ -243,7 +243,7 @@ public class JeuGuerrierAmeliore {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
                 plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -256,7 +256,7 @@ public class JeuGuerrierAmeliore {
 	            defenseur.setPtsVie(defenseur.getPtsVieMax());
 	            plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -268,7 +268,7 @@ public class JeuGuerrierAmeliore {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
                 plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -277,19 +277,19 @@ public class JeuGuerrierAmeliore {
                 defenseur.setPtsVie(defenseur.getPtsVieMax());
                 plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
             }
-	        plateau.afficherInformation2("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
+	        plateau.afficherInformation2("<html> L'attaquant("+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur("+attaquant.getNiveau().getLvl()+") riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
 	        return 4;
         }
         if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
             attaquant.setPtsVie(attaquant.getPtsVieMax());
             plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
-                Thread.sleep(5000);
+                Thread.sleep(3500);
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
@@ -298,12 +298,12 @@ public class JeuGuerrierAmeliore {
             defenseur.setPtsVie(defenseur.getPtsVieMax());
             plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
-                Thread.sleep(5000);
+                Thread.sleep(3500);
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
         }
-        plateau.afficherInformation2("<html> L'attaquant a infligé "+valAtt+" pts de degat !<br>Le defenseur riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
+        plateau.afficherInformation2("<html> L'attaquant ("+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur niveau ("+defenseur.getNiveau().getLvl() +") riposte de "+valDef + " !<br>L'attaquant a raté son attaque ! </html>");
         return 5;
     }
     /**
@@ -342,7 +342,7 @@ public class JeuGuerrierAmeliore {
                 defenseur.setPtsVie(defenseur.getPtsVieMax());
                 plateau.afficherInformation("Le defenseur a augmenté de niveau durant le match à mort et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -355,7 +355,7 @@ public class JeuGuerrierAmeliore {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
                 plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(5000);
+                    Thread.sleep(3500);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
