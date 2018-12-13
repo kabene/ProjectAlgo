@@ -1,13 +1,13 @@
 package jeu;
 import java.util.Scanner;
+/**
+ * @author Abene Karim, Sivixay Celestin
+ *
+ *         Classe d'ex�cution du jeu
+ *
+ */
 public class JeuGuerrierDeBase {
 
-    /**
-     * @author Abene Karim, Sivixay Celestin
-     *
-     *         Classe d'ex�cution du jeu
-     *
-     */
     private static Scanner scanner = new Scanner(System.in);
     private static GrilleJeu grille; // gestion des donn�es du jeu
     private static PlateauDeJeu plateau; // panneau graphique du jeu

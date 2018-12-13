@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="samer seBattre">
+    <list default="true" id="876d0389-5743-4268-bc45-0ac8d2bf9a64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/jeu/Guerrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/jeu/Guerrier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/GrilleJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/GrilleJeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/GrilleJeuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/GrilleJeuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/Guerrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Guerrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jeu/JoueurTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jeu/JoueurTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jeu/Niveau.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -88,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="3" selection-start-line="3" selection-end-line="9" selection-end-column="3" />
+              <caret line="8" column="2" selection-start-line="3" selection-end-line="9" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -108,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+            <state relative-caret-position="119">
+              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -157,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java" />
         <option value="$PROJECT_DIR$/src/jeu/Joueur.java" />
         <option value="$PROJECT_DIR$/src/jeu/GrilleJeu.java" />
-        <option value="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" />
         <option value="$PROJECT_DIR$/src/jeu/JoueurTest.java" />
         <option value="$PROJECT_DIR$/src/jeu/GrilleJeuTest.java" />
         <option value="$PROJECT_DIR$/src/jeu/Niveau.java" />
+        <option value="$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java" />
       </list>
     </option>
   </component>
@@ -208,7 +202,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544705802359" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544705886894" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -302,7 +296,7 @@
       <workItem from="1544543534554" duration="169000" />
       <workItem from="1544693468745" duration="8762000" />
       <workItem from="1544703207321" duration="1929000" />
-      <workItem from="1544705210782" duration="435000" />
+      <workItem from="1544705210782" duration="682000" />
     </task>
     <task id="LOCAL-00001" summary="joueur">
       <created>1543919043370</created>
@@ -507,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544702228672</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="author">
+      <created>1544705882052</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1544705882052</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -516,13 +517,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53913000" />
+    <option name="totallyTimeSpent" value="54160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1590604" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1590604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -540,8 +541,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4966443" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5100671" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.48791945" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5127517" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" sideWeight="0.48724833" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -566,7 +567,8 @@
     <MESSAGE value="samer la variable" />
     <MESSAGE value="samer le niveau" />
     <MESSAGE value="samer seBattre" />
-    <option name="LAST_COMMIT_MESSAGE" value="samer seBattre" />
+    <MESSAGE value="author" />
+    <option name="LAST_COMMIT_MESSAGE" value="author" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bin/jeu/JeuGuerrier.class" />
@@ -602,7 +604,7 @@
     <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierAmeliore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="3" selection-end-line="9" selection-end-column="3" />
+          <caret line="8" column="2" selection-start-line="3" selection-end-line="9" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -616,13 +618,6 @@
             <element signature="e#3024#3025#0" expanded="true" />
             <element signature="e#3063#3064#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -643,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4828">
-          <caret line="284" selection-start-line="284" selection-end-line="284" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/GrilleJeuTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -663,10 +648,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/PlateauDeJeu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4828">
+          <caret line="284" selection-start-line="284" selection-end-line="284" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/jeu/Niveau.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jeu/JeuGuerrierDeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
         </state>
       </provider>
     </entry>
