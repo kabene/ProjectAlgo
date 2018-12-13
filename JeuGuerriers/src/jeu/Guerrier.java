@@ -12,6 +12,8 @@ public class Guerrier {
 	private int ptsVie; // nombre de point de vie du guerrier
 	private int numJoueur; //num�ro du joueur � qui appartient le guerrier
 	private int numGuerrier; // num�ro du guerrier
+	private Niveau niveau; // niveau du guerrier (jeu amélioré
+	private int ptsVieMax;// )
 	
 	/**
 	 * Cr�e un guerrier num�ro numero du joueur dont le num�ro est numJoueur et qui a ptsVie point(s) de vie
@@ -24,6 +26,7 @@ public class Guerrier {
 		this.numGuerrier = numGuerrier;
 		this.nombreDeTours = 0 ;
 		this.ptsVie = ptsVie ;
+		ptsVieMax=ptsVie;
 	}
 	
 	/**
@@ -50,7 +53,13 @@ public class Guerrier {
 		return this.nombreDeTours ;
 	}
 
-	
+	/**
+	 * renvoie le niveau du guerrier
+	 * @return le niveau du guerrier
+	 */
+	public Niveau getNiveau(){
+		return niveau;
+	}
 	/**
 	 * renvoie le nombre de points de vie du guerrier
 	 * @return le nombre de points de vie du guerrier
@@ -58,6 +67,8 @@ public class Guerrier {
 	public int getPtsVie() {
 		return ptsVie ;
 	}
+
+	public int getPtsVieMax(){ return ptsVieMax; }
 	
 	/**
 	 * Mets le nombre de points de vie du guerrier � ptsVie ;

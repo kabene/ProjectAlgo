@@ -23,15 +23,15 @@ public class Niveau {
                 return true;
             }
         if(lvl==2)
-            if(this.experience>125){
+            if(this.experience>150){
                 lvl=3;
-                this.experience-=125;
+                this.experience-=150;
                 return true;
             }
         if(lvl==3)
-            if(this.experience>150){
+            if(this.experience>200){
                 lvl=4;
-                this.experience-=150;
+                this.experience-=200;
                 return true;
             }
         return false;
