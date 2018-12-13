@@ -88,7 +88,7 @@ public class JeuGuerrierAmeliore {
 		    plateau.afficherInformation("Tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (tourMax < nbrTours && nbrJoueursEnVie > 1) { // Evite que les joueurs finissent le tour si un joueur a atteint les prérequis de victoire
-                    if (grille.donnerJoueur(i + 1).nombreDeGuerriersEnVie() > 0) {
+                    if (grille.donnerJoueur(i + 1).estEnVie()) {
                         plateau.afficherJoueur(grille.donnerJoueur(i + 1));
                         int nbr = de.lancer();
                         plateau.afficherResultatDe(nbr);
@@ -241,9 +241,9 @@ public class JeuGuerrierAmeliore {
             grille.bougerPion(caseAtt, caseDef);
             if(attaquant.getNiveau().ajouterExperience(valAtt*5+20)) {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
-                plateau.afficherInformation2("L'attaquant a augmenté de niveau !");
+                plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -254,9 +254,9 @@ public class JeuGuerrierAmeliore {
 	        grille.supprimerPion(caseAtt);
 	        if(defenseur.getNiveau().ajouterExperience(valDef*5+20)){
 	            defenseur.setPtsVie(defenseur.getPtsVieMax());
-	            plateau.afficherInformation2("Le defenseur a augmenté de niveau !");
+	            plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -266,18 +266,18 @@ public class JeuGuerrierAmeliore {
         }else if(valAtt>valDef){
             if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
-                plateau.afficherInformation2("L'attaquant a augmenté de niveau !");
+                plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
             }
             if(defenseur.getNiveau().ajouterExperience(valDef*5)){
                 defenseur.setPtsVie(defenseur.getPtsVieMax());
-                plateau.afficherInformation2("Le defenseur a augmenté de niveau !");
+                plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -287,18 +287,18 @@ public class JeuGuerrierAmeliore {
         }
         if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
             attaquant.setPtsVie(attaquant.getPtsVieMax());
-            plateau.afficherInformation2("L'attaquant a augmenté de niveau !");
+            plateau.afficherInformation2("L'attaquant a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
         }
         if(defenseur.getNiveau().ajouterExperience(valDef*5)){
             defenseur.setPtsVie(defenseur.getPtsVieMax());
-            plateau.afficherInformation2("Le defenseur a augmenté de niveau !");
+            plateau.afficherInformation2("Le defenseur a augmenté de niveau et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
             try{
-                Thread.sleep(3000);
+                Thread.sleep(5000);
             }catch(InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
@@ -340,9 +340,9 @@ public class JeuGuerrierAmeliore {
             grille.supprimerPion(caseAtt);
             if(defenseur.getNiveau().ajouterExperience(defenseur.getPtsVieMax())){
                 defenseur.setPtsVie(defenseur.getPtsVieMax());
-                plateau.afficherInformation("Le defenseur a augmenté de niveau durant le match à mort !");
+                plateau.afficherInformation("Le defenseur a augmenté de niveau durant le match à mort et a atteint le niveau " + defenseur.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }
@@ -353,9 +353,9 @@ public class JeuGuerrierAmeliore {
             grille.bougerPion(caseAtt,caseDef);
             if(attaquant.getNiveau().ajouterExperience(attaquant.getPtsVieMax())) {
                 attaquant.setPtsVie(attaquant.getPtsVieMax());
-                plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort !");
+                plateau.afficherInformation("L'attaquant a augmenté de niveau durant le match à mort et a atteint le niveau " + attaquant.getNiveau().getLvl() + " !");
                 try{
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 }catch(InterruptedException ex){
                     Thread.currentThread().interrupt();
                 }

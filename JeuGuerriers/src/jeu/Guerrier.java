@@ -26,7 +26,7 @@ public class Guerrier {
 		this.numGuerrier = numGuerrier;
 		this.nombreDeTours = 0 ;
 		this.ptsVie = ptsVie ;
-		this.niveau=new Niveau();
+		this.niveau = new Niveau();
 		ptsVieMax=ptsVie;
 	}
 	
