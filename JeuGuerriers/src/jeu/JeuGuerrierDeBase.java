@@ -26,6 +26,12 @@ public class JeuGuerrierDeBase {
         int nbrTours = UtilitairesJeux.lireEntierPositif("Le nombre de tours est de minimum 1");
         System.out.print("Entrez le nombre de joueurs : ");
         int nbreJoueurs = UtilitairesJeux.lireEntierPositif("Le nombre de joueurs est de minimum 2");
+        if(nbreJoueurs==1){
+            while (nbreJoueurs<=1) {
+                System.out.print("il est malheureusement impossible de jouer avec un seul joueur, veuillez entrer un autre nombre: ");
+                nbreJoueurs = scanner.nextInt();
+            }
+        }
         System.out.print("Entrez le nombre de guerriers par joueurs : ");
         int nbreJetons = UtilitairesJeux.lireEntierPositif("Le nombre de guerriers est de minimum 1");
         System.out.print("Entrez le nombre de points de vie des guerriers : ");
@@ -125,7 +131,7 @@ public class JeuGuerrierDeBase {
                             }
                         }
                         if(tourMax==nbrTours) {
-                            plateau.afficherInformation2("Le joueur gagnant est le joueur numero " + (i+1));
+                            plateau.afficherInformation2("<html>Le joueur gagnant est le joueur numero " + (i+1)+"<br>      Bravo à lui ou elle </html>");
                             plateau.afficherGagnant(grille.donnerJoueur(i + 1));
                         } else {
                             for (int j = 0; j < nbreJoueurs; j++) {
@@ -142,7 +148,7 @@ public class JeuGuerrierDeBase {
                                 for (int k = 0; k < nbreJoueurs; k++) {
                                     if (grille.donnerJoueur(k + 1).nombreDeGuerriersEnVie() > 0) {
                                         joueurGagnant = grille.donnerJoueur(k + 1);
-                                        plateau.afficherInformation2("Le joueur gagnant est le joueur numero " + (k + 1));
+                                        plateau.afficherInformation2("<html>Le joueur gagnant est le joueur numero " + (k + 1)+"<br>      Bravo à lui ou elle </html>");
                                     }
                                 }
 
