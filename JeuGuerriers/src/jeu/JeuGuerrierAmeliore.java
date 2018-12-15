@@ -88,7 +88,7 @@ public class JeuGuerrierAmeliore {
 		    plateau.afficherInformation("Tour " + tourActuel);
 			for (int i = 0; i < nbreJoueurs; i++) {
                 if (tourMax < nbrTours && nbrJoueursEnVie > 1) { // Evite que les joueurs finissent le tour si un joueur a atteint les prérequis de victoire
-                    if (grille.donnerJoueur(i + 1).estEnVie()) {
+                    if (grille.donnerJoueur(i + 1).estEnVie()) { // Evite qu'un joueur sans guerrier joue
                         plateau.afficherJoueur(grille.donnerJoueur(i + 1));
                         int nbr = de.lancer();
                         plateau.afficherResultatDe(nbr);
