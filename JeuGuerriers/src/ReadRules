@@ -1,3 +1,29 @@
 # README file from #Author ABENE and SIVIXAY
 
 Rules:
+Le jeu est composé d'un dé, un nombre de joueurs allant de 2 à 8, un nombre de guerriers allant de 1 à 10
+et un plateau dont le nombre de case est d'au moins le nombre de joueurs fois le nombre de guerriers par joueur, ce nombre doit aussi être pair.
+Le but du jeu est de soit qu'un pion atteigne le nombre de tours demandé, soit que plus aucun autre joueur n'ait de pions sur le plateau.
+Chaque début de tour, un dé est lancé, le joueur qui joue peut choisir n'importe lequel de ses pions (guerriers)
+et le faire bouger d'un nombre de cases égal à la valeur du dé.
+Lorsqu'un guerrier est bougé sur une case occupée, un combat a lieu, peu importe si les pions appartiennent au même joueur.
+4cas sont alors possibles :
+1) Le guerrier attaquant meurt et est retiré du plateau
+2) Le guerrier defenseur meurt et le guerrier attaquant prend sa place
+3) Aucun ne meurt, mais l'attaquant a fait plus de degats que le defenseur, il se déplace alors sur la première case libre après le defenseur.
+4) Aucun ne meurt, mais le defenseur a fait plus ou autant de degats que l'attaquant, les pions restent alors à leur position.
+Chaque combat se livre à travers 2 lancés de dé(à 6faces) (un pour désigner la valeur d'attaque, l'autre pour désigner la valeur de défense).
+
+Dans le jeu amélioré, plusieurs règles sont ajoutées :
+1)Ajout d'une fonction de niveau et d'expérience :
+Chaque guerrier commence au niveau 1 et peut aller jusqu'au niveau 4 maximum selon le barème suivant :
+(Total d'expérience) Level 1 : 0 ; Level 2 : 100 ; Level 3 : 250 ; Level 4 : 450.
+Un guerrier gagne de l'expérience en se battant. Dans un combat normal, il gagne 5points d'expérience à chaque dégat infligé et en gagne 20 lorsqu'il tue un ennemi.
+Les niveaux à partir de 2 confèrent chacun un bonus de 10% de points de vie ainsi qu'un bonus de dégat égal au niveau-1 :
+(Cumulatif, exemple : un guerrier de niveau 3 aura ses pvs de base multipliés par (1.1)^2 et ses degats seront augmentés de (3-1)+(2-1)=3).
+Les points de vie sont remis au maximum lorsqu'un guerrier augmente de niveau.
+2)Il y a un ajout d'une option "Match à mort" tous les X tours.
+Dans un match à mort, les pions engagés dans le combat effectueront des combats basiques jusqu'à ce que l'un des deux meurt.
+A la fin du combat, le pion survivant gagne un montant d'expérience égal à ses points de vie maximum,
+il ne peut cependant augmenter que d'un niveau par combat(l'expérience s'accumule tout de même et si il possède assez d'expérience, il augmentera de niveau au prochain combat).
+3)Lorsque le plateau est rempli, un match à mort a lieu entre 2 pions aléatoires n'appartenant pas au même joueur.
