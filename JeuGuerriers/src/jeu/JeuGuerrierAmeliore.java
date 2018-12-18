@@ -151,7 +151,7 @@ public class JeuGuerrierAmeliore {
                                     }else {
                                         int resultat = seBattre(caseChoisie, nbr);
                                         if (resultat == 4) {
-                                            while (grille.donnerPion(nbr) != null) {
+                                            while (grille.donnerPion(nbr) != null && nbr!=caseChoisie) {
                                                 if (nbr != nbrCases) {
                                                     nbr++;
                                                 } else {
