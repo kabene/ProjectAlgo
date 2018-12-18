@@ -292,7 +292,7 @@ public class JeuGuerrierAmeliore {
                     Thread.currentThread().interrupt();
                 }
             }
-	        plateau.afficherInformation2("<html> L'attaquant(Niv."+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur(Niv."+attaquant.getNiveau().getLvl()+") riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
+	        plateau.afficherInformation2("<html> L'attaquant(Niv."+attaquant.getNiveau().getLvl()+") a infligé "+valAtt+" pts de degat !<br>Le defenseur(Niv."+defenseur.getNiveau().getLvl()+") riposte de "+valDef + " !<br>L'attaquant a réussi son attaque !</html>");
 	        return 4;
         }
         if(attaquant.getNiveau().ajouterExperience(valAtt*5)) {
